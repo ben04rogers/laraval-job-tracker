@@ -29,7 +29,7 @@ class RegisterController extends Controller
         ]);
 
         // Sign in
-        // auth()->attempt($request->only("email", "password"));
+        auth()->attempt($request->only("email", "password"));
 
         return redirect()->route('home');
     }

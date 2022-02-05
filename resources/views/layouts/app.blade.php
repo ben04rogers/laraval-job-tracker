@@ -7,33 +7,58 @@
 
     {{-- Bootstrap CSS --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <title>Job Application Tracker</title>
 </head>
 <body>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="{{ route("home") }}">Job Tracker</a>
+          <a class="navbar-brand" href="{{ route("home") }}">JobTrack</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav w-100 d-flex justify-content-between">
               <li class="nav-item active">
-                <a class="nav-link" href="{{ route("home") }}">Home</a>
+                <a class="nav-link active" href="{{ route("home") }}">Home</a>
               </li>
               {{-- Only show add button for logged in users --}}
-              <li class="nav-item">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addJobModal">
-                  Add Job
-                </button>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="{{ route("login") }}">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="{{ route("register") }}">Register</a>
-              </li>
+              @auth
+              <div class="d-flex">
+                  <li class="nav-item">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle text-white" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                            Welcome, {{ Auth::user()->name }}
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <form action="{{ route("logout") }}" method="post">
+                                @csrf
+                                <li><button type="submit" class="dropdown-item" type="button">Logout</button></li>
+                            </form>
+                        </ul>
+                      </div>
+                  </li>
+    
+                  <li class="nav-item mx-2">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addJobModal">
+                      Add Job
+                    </button>
+                  </li>
+              </div>
+              @endauth
+
+              {{-- Only show links if user is a guest (has not logged in) --}}
+              @guest
+              <div class="d-flex">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="{{ route("login") }}">Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="{{ route("register") }}">Register</a>
+                  </li>
+              </div>
+              @endguest
             </ul>
           </div>
         </div>

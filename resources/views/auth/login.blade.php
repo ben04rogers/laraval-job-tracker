@@ -1,48 +1,50 @@
 @extends("layouts.app")
 
 @section('content')
-    <div class="flex justify-center">
-        <div class="w-4/12 bg-white p-6 rounded-lg">
+    <div>
+        <div class="d-flex justify-content-center align-items-center py-5 row">
             @if (session("status"))
-                <div class="mb-4 bg-red-500 p-4 rounded-lg text-white text-center">
+                <div class="">
                     {{ session("status") }}
                 </div>
             @endif
 
-            <form action="{{ route("login") }}" method="post">
-                @csrf
-
-                <div class="mb-4">
-                    <label for="email" class="sr-only">Email</label>
-                    <input type="text" name="email" id="email" placeholder="Email" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('email') border-red-500 @enderror" value="{{ old('email') }}">
-                    @error("email")
-                        <div class="text-red-500 mt-2 text-sm">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-
-                <div class="mb-4">
-                    <label for="password" class="sr-only">Choose a password</label>
-                    <input type="password" name="password" id="password" placeholder="Password" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('password') border-red-500 @enderror">
-                    @error("password")
-                        <div class="text-red-500 mt-2 text-sm">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-
-                <div class="mb-4">
-                    <div class="flex items-center">
-                        <input type="checkbox" name="remember" id="remember" class="mr-2">
-                        <label for="remember">Remember me</label>
+            <div class="col-5">
+                <form action="{{ route("login") }}" method="post" class="login-form">
+                    @csrf
+    
+                    <div class="mb-4">
+                        <label for="email" class="my-2">Email</label>
+                        <input type="text" name="email" id="email" placeholder="Email" class="form-control @error('email') border-danger @enderror" value="{{ old('email') }}">
+                        @error("email")
+                            <div class="text-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
-                </div>
-                
-                <div>
-                    <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Login</button>
-                </div>
-            </form>
+    
+                    <div class="mb-4">
+                        <label for="password" class="my-2">Password</label>
+                        <input type="password" name="password" id="password" placeholder="Password" class="form-control @error('password') border-danger @enderror">
+                        @error("password")
+                            <div class="text-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+    
+                    <div class="mb-4">
+                        <div class="flex items-center">
+                            <input type="checkbox" name="remember" id="remember" class="form-check-label">
+                            <label for="remember">Remember me</label>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 @endsection
