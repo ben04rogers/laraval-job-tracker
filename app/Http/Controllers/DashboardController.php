@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Job;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Symfony\Component\Console\Input\Input;
 
 class DashboardController extends Controller
 {
@@ -20,9 +21,20 @@ class DashboardController extends Controller
 
         // Get all jobs for the currently signed in user
         $jobs = DB::table("jobs")->get()->where("user_id", Auth::user()->id);
+        
+        // Chain where() for multiple conditions
+        $sent_jobs = DB::table("jobs")->get()->where("user_id", Auth::user()->id)->where("status", "Sent")->count();
+
+        $interviewing_jobs = DB::table("jobs")->get()->where("user_id", Auth::user()->id)->where("status", "Interviewing")->count();
+
+        $offer_jobs = DB::table("jobs")->get()->where("user_id", Auth::user()->id)->where("status", "Offer")->count();
+
 
         return view("dashboard", [
-            'jobs' => $jobs
+            'jobs' => $jobs,
+            'sent_jobs' => $sent_jobs,
+            'interviewing_jobs' => $interviewing_jobs,
+            'offer_jobs' => $offer_jobs
         ]);
     }
 

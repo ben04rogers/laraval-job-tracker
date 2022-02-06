@@ -42,7 +42,7 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                             <form action="{{ route("logout") }}" method="post">
                                 @csrf
-                                <li><button type="submit" class="dropdown-item" type="button">Logout</button></li>
+                                <li><button type="submit" class="dropdown-item" type="button"><i class="fas fa-sign-out-alt text-secondary"></i> Logout</button></li>
                             </form>
                         </ul>
                       </div>

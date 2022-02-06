@@ -6,6 +6,35 @@
         <p class="alert alert-info mb-2">{{ Session::get('message') }}</p>
         @endif
 
+        <div class="top-grid my-5">
+            <div class="row gx-4">
+                <div class="col">
+                    <div class="border d-flex flex-column align-items-center justify-content-center p-3 rounded">
+                        <h5 class="text-muted">Sent Applications</h5>
+                        <h1 class="fw-bold">
+                            {{ $sent_jobs }}
+                        </h1>
+                    </div>    
+                </div>
+                <div class="col">
+                    <div class="border d-flex flex-column align-items-center justify-content-center p-3 rounded">
+                        <h5 class="text-muted">Interviewing</h5>
+                        <h1 class="fw-bold">
+                            {{ $interviewing_jobs }}
+                        </h1>
+                    </div> 
+                </div>
+                <div class="col">
+                    <div class="border d-flex flex-column align-items-center justify-content-center p-3 rounded">
+                        <h5 class="text-muted">Offers</h5>
+                        <h1 class="fw-bold">
+                            {{ $offer_jobs }}
+                        </h1>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
         <div class="current-applications">
             <div class="d-flex justify-content-between my-3">
                 <h3><i class="fas fa-briefcase text-success"></i></i><span class="mx-3">Current Applications</span></h3>
@@ -30,7 +59,7 @@
                 </thead>
                 <tbody>
                     @foreach ($jobs as $job)
-                        @if ($job->status !== "expired")
+                        @if ($job->status !== "Expired")
                             <tr class="clickable-row" ?>
                                 <th scope="row">{{ $job->id }}</th>
                                 <td>{{ $job->company_name }}</td>
@@ -38,9 +67,13 @@
                                 <td>${{ $job->salary }}</td>
                                 <td>{{ $job->date_applied }}</td>
                                 <td>{{ $job->status }}</td>
-                                <td>
-                                    <a href="{{ route("job", $job->id) }}" class="mx-2"><i class="fas fa-edit"></i></a>
-                                    <a href="" class="text-danger"><i class="fas fa-trash-alt"></i></a>
+                                <td class="d-flex">
+                                    <a href="{{ route("job", $job->id) }}" class="mx-2"><i class="fas fa-eye"></i></a>
+                                    <form action="/delete/job/{{$job->id}}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="text-danger" style="border:none;"><i class="fas fa-trash-alt"></i></button>
+                                    </form>
                                 </i></td>
                             </tr>
                         @endif
@@ -69,7 +102,7 @@
                 </thead>
                 <tbody>
                     @foreach ($jobs as $job)
-                        @if ($job->status === "expired")
+                        @if ($job->status === "Expired")
                             <tr class="clickable-row" ?>
                                 <th scope="row">{{ $job->id }}</th>
                                 <td>{{ $job->company_name }}</td>
@@ -77,9 +110,13 @@
                                 <td>${{ $job->salary }}</td>
                                 <td>{{ $job->date_applied }}</td>
                                 <td>{{ $job->status }}</td>
-                                <td>
-                                    <a href="{{ route("job", $job->id) }}" class="mx-2"><i class="fas fa-edit"></i></a>
-                                    <a href="" class="text-danger"><i class="fas fa-trash-alt"></i></a>
+                                <td class="d-flex">
+                                    <a href="{{ route("job", $job->id) }}" class="mx-2"><i class="fas fa-eye"></i></a>
+                                    <form action="/delete/job/{{$job->id}}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="text-danger" style="border:none;"><i class="fas fa-trash-alt"></i></button>
+                                    </form>
                                 </i></td>
                             </tr>
                         @endif

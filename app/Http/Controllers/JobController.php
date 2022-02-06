@@ -19,4 +19,10 @@ class JobController extends Controller
             'job_details' => $job_details
         ]);    
     }
+
+    public function delete($id) {
+        DB::table("jobs")->where("id", $id)->delete();
+
+        return back();
+    }
 }

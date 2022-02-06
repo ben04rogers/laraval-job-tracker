@@ -26,6 +26,7 @@ Route::get("/dashboard", [DashboardController::class, "index"])->name("dashboard
 Route::post("/dashboard", [DashboardController::class, "store"]);
 
 Route::get("/jobs/{id}/details", [JobController::class, "index"])->name("job");
+Route::delete("/delete/job/{id}", [JobController::class, "delete"])->name("deletejob");
 
 Route::get("/login", [LoginController::class, "index"])->name("login");
 Route::post("/login", [LoginController::class, "store"]);
