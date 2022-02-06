@@ -8,6 +8,9 @@
     {{-- Bootstrap CSS --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
+    <!-- Font awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
     <title>Job Application Tracker</title>
 </head>
 <body>
@@ -20,9 +23,14 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav w-100 d-flex justify-content-between">
-              <li class="nav-item active">
-                <a class="nav-link active" href="{{ route("home") }}">Home</a>
-              </li>
+                <div class="d-flex">
+                    <li class="nav-item active">
+                      <a class="nav-link active" href="{{ route("home") }}">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link active" href="{{ route("dashboard") }}">Dashboard</a>
+                    </li>
+                </div>
               {{-- Only show add button for logged in users --}}
               @auth
               <div class="d-flex">
@@ -38,12 +46,6 @@
                             </form>
                         </ul>
                       </div>
-                  </li>
-    
-                  <li class="nav-item mx-2">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addJobModal">
-                      Add Job
-                    </button>
                   </li>
               </div>
               @endauth
