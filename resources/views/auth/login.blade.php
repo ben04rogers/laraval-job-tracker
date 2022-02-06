@@ -10,6 +10,7 @@
             @endif
 
             <div class="col-5">
+                <h2 class="text-center">Login</h2>
                 <form action="{{ route("login") }}" method="post" class="login-form">
                     @csrf
     

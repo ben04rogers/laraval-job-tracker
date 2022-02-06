@@ -54,10 +54,10 @@
               @guest
               <div class="d-flex">
                   <li class="nav-item">
-                    <a class="nav-link active" href="{{ route("login") }}">Login</a>
+                    <a class="btn btn-outline-primary mx-2" href="{{ route("login") }}">Login</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" href="{{ route("register") }}">Register</a>
+                    <a class="btn btn-primary" href="{{ route("register") }}">Register</a>
                   </li>
               </div>
               @endguest
