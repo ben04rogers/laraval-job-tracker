@@ -45,6 +45,7 @@ class DashboardController extends Controller
             'company_name' => 'required|max:255',
             'position_title' => 'required|max:255',
             'salary' => 'required|',
+            'description' => 'required',
             'post_url' => 'required',
             'application_status' => 'required'
         ]);
@@ -54,6 +55,7 @@ class DashboardController extends Controller
             'company_name' => $request->company_name,
             'job_title' => $request->position_title,
             'salary' => $request->salary,
+            'description' => $request->description,
             'post_url' => $request->post_url,
             'status' => $request->application_status,
             'date_applied' => date('Y-m-d H:i')

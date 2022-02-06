@@ -9,7 +9,7 @@
         <div class="top-grid my-5">
             <div class="row gx-4">
                 <div class="col">
-                    <div class="border d-flex flex-column align-items-center justify-content-center p-3 rounded">
+                    <div class="bg-white border d-flex flex-column align-items-center justify-content-center p-3 rounded">
                         <h5 class="text-muted">Sent Applications</h5>
                         <h1 class="fw-bold">
                             {{ $sent_jobs }}
@@ -17,7 +17,7 @@
                     </div>    
                 </div>
                 <div class="col">
-                    <div class="border d-flex flex-column align-items-center justify-content-center p-3 rounded">
+                    <div class="bg-white border d-flex flex-column align-items-center justify-content-center p-3 rounded">
                         <h5 class="text-muted">Interviewing</h5>
                         <h1 class="fw-bold">
                             {{ $interviewing_jobs }}
@@ -25,7 +25,7 @@
                     </div> 
                 </div>
                 <div class="col">
-                    <div class="border d-flex flex-column align-items-center justify-content-center p-3 rounded">
+                    <div class="bg-white border d-flex flex-column align-items-center justify-content-center p-3 rounded">
                         <h5 class="text-muted">Offers</h5>
                         <h1 class="fw-bold">
                             {{ $offer_jobs }}
@@ -72,7 +72,7 @@
                                     <form action="/delete/job/{{$job->id}}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="text-danger" style="border:none;"><i class="fas fa-trash-alt"></i></button>
+                                        <button type="submit" class="text-danger" style="border:none;" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash-alt"></i></button>
                                     </form>
                                 </i></td>
                             </tr>
@@ -115,7 +115,7 @@
                                     <form action="/delete/job/{{$job->id}}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="text-danger" style="border:none;"><i class="fas fa-trash-alt"></i></button>
+                                        <button type="submit" class="text-danger" style="border:none;" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash-alt"></i></button>
                                     </form>
                                 </i></td>
                             </tr>
@@ -153,6 +153,11 @@
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Salary:</label>
                         <input type="number" name="salary" maxlength="50" placeholder="Salary" required>
+                    </div>
+
+                    <div class="d-flex flex-column mb-2">
+                        <label class="mb-1">Description:</label>
+                        <textarea name="description" id="description" cols="30" rows="7" required></textarea>
                     </div>
         
                     <div class="d-flex flex-column mb-2">

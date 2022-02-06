@@ -13,7 +13,7 @@
 
     <title>Job Application Tracker</title>
 </head>
-<body>
+<body class="bg-light">
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container">
@@ -54,10 +54,10 @@
               @guest
               <div class="d-flex">
                   <li class="nav-item">
-                    <a class="btn btn-outline-primary mx-2" href="{{ route("login") }}">Login</a>
+                    <a class="btn btn-outline-primary mx-2" href="{{ route("login") }}"><i class="fas fa-sign-in-alt"></i> Login</a>
                   </li>
                   <li class="nav-item">
-                    <a class="btn btn-primary" href="{{ route("register") }}">Register</a>
+                    <a class="btn btn-primary" href="{{ route("register") }}"><i class="fas fa-user-plus"></i> Register</a>
                   </li>
               </div>
               @endguest

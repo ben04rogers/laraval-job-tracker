@@ -15,7 +15,8 @@ class Job extends Model
         'job_title',
         'post_url',
         'salary',
-        'status'
+        'status',
+        'description'
     ];
 
     // A job application belongs to a user
