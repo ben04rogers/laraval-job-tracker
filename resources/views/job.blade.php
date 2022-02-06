@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-6">
                     <h3>Job Description</h3>
-                    <div class="p-4 bg-white rounded">
+                    <div class="p-4 bg-white rounded description-output">
                         {{ $job_details->description }}
                     </div>
                 </div>
