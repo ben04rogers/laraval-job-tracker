@@ -3,7 +3,7 @@
 @section("content")
     <div class="py-3">
         @if(Session::has('message'))
-        <p class="alert alert-info mb-2">{{ Session::get('message') }}</p>
+        <p class="alert alert-primary mb-2">{{ Session::get('message') }}</p>
         @endif
 
         <div class="top-grid my-5">
@@ -38,9 +38,8 @@
         <div class="current-applications">
             <div class="d-flex justify-content-between my-3">
                 <h3><i class="fas fa-briefcase text-success"></i></i><span class="mx-3">Current Applications</span></h3>
-    
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addJobModal">
-                    Add Job
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addJobModal">
+                    Add Application
                 </button>
             </div>
 

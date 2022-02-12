@@ -3,7 +3,7 @@
 @section("content")
     <div class="py-3">
         @if(Session::has('message'))
-        <p class="alert alert-info mb-2">{{ Session::get('message') }}</p>
+        <p class="alert alert-primary mb-2">{{ Session::get('message') }}</p>
         @endif
         <div class="mt-4 bg-white rounded p-5">
             <div class="row align-items-center">

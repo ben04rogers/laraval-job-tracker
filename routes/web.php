@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\FilesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -24,6 +25,9 @@ Route::get('/', function () {
 
 Route::get("/dashboard", [DashboardController::class, "index"])->name("dashboard");
 Route::post("/dashboard", [DashboardController::class, "store"]);
+
+Route::get("/files", [FilesController::class, "index"])->name("files");
+Route::post("/files", [FilesController::class, "store"]);
 
 Route::get("/jobs/{id}/details", [JobController::class, "index"])->name("job");
 Route::delete("/delete/job/{id}", [JobController::class, "delete"])->name("deletejob");

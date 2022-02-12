@@ -34,6 +34,11 @@
                     <li class="nav-item active">
                       <a class="nav-link active" href="{{ route("dashboard") }}">Dashboard</a>
                     </li>
+                    @auth
+                    <li class="nav-item active">
+                      <a class="nav-link active" href="{{ route("files") }}">Files</a>
+                    </li>
+                    @endauth
                 </div>
               {{-- Only show add button for logged in users --}}
               @auth
