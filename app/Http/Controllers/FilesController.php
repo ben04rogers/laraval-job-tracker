@@ -25,6 +25,12 @@ class FilesController extends Controller
     }
 
     public function store(Request $request) {
+
+        // 5MB Max Size
+        $this->validate($request, [
+            'file' => 'required|max:5000',
+        ]);
+
         $data = new File();
         $file = $request->file;
         $filename=time().'.'.$file->getClientOriginalExtension();

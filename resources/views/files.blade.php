@@ -22,6 +22,11 @@
                         </div>
                       </div>
                     <div>
+                        @error("file")
+                            <div class="text-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
                         <input type="submit" value="Upload" class="btn btn-primary mt-4">
                     </div>
                 </form>
