@@ -12,7 +12,6 @@ class FilesController extends Controller
 {
     public function index() {
         $files =  DB::table("files")->get()->where("user_id", Auth::user()->id);
-
         return view("files", compact('files'));
     }
 

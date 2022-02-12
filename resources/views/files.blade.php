@@ -10,7 +10,7 @@
                     @csrf
     
                     <div class="image-upload-wrap">
-                        <input class="file-upload-input" type='file' name="file" onchange="readURL(this);" accept="image/*,.pdf" />
+                        <input class="file-upload-input" type='file' name="file" onchange="readURL(this);" accept="image/*,.pdf, .doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
                         <div class="drag-text">
                           <h3>Add a file</h3>
                         </div>
