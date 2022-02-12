@@ -38,8 +38,8 @@
         <div class="current-applications">
             <div class="d-flex justify-content-between my-3">
                 <h3><i class="fas fa-briefcase text-success"></i></i><span class="mx-3">Current Applications</span></h3>
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addJobModal">
-                    Add Application
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addJobModal">
+                    Add Job
                 </button>
             </div>
 
@@ -128,8 +128,8 @@
         <div class="modal fade" id="addJobModal" tabindex="-1" aria-labelledby="addJobModalLabel" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="addJobModalLabel">Add a Job</h5>
+                <div class="modal-header bg-primary">
+                <h5 class="modal-title text-white" id="addJobModalLabel">Add a Job</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
