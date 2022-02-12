@@ -124,9 +124,6 @@
             </table>
         </div>
 
-
-        
-
         <!-- Add job modal popup -->
         <div class="modal fade" id="addJobModal" tabindex="-1" aria-labelledby="addJobModalLabel" aria-hidden="true">
             <div class="modal-dialog">

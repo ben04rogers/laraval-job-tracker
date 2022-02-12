@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Job;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -16,9 +17,36 @@ class JobController extends Controller
         // Get all jobs for the currently signed in user
         $job_details = DB::table("jobs")->where("id", $job_id)->first();
 
+        // echo(gettype($job_details));
+
+
         return view("job", [
             'job_details' => $job_details
         ]);    
+    }
+
+    public function update($id, Request $request) {
+        // Validate request 
+        
+        $this->validate($request, [
+            'company_name' => 'required|max:255',
+            'position_title' => 'required|max:255',
+            'salary' => 'required|',
+            'description' => 'required',
+            'post_url' => 'required',
+            'application_status' => 'required'
+        ]);
+
+        Job::where('id', $id)->update([
+            'company_name' => $request->company_name,
+            'job_title' => $request->position_title,
+            'salary' => $request->salary,
+            'description' => $request->description,
+            'post_url' => $request->post_url,
+            'status' => $request->application_status,
+        ]);
+
+        return back();
     }
 
     public function delete($id) {

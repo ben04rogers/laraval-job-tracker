@@ -34,6 +34,7 @@ Route::get("/files/view/{id}", [FilesController::class, "view"]);
 
 Route::get("/jobs/{id}/details", [JobController::class, "index"])->name("job");
 Route::delete("/delete/job/{id}", [JobController::class, "delete"])->name("deletejob");
+Route::put("/jobs/{id}/update", [JobController::class, "update"])->name("updatejob");
 
 Route::get("/login", [LoginController::class, "index"])->name("login");
 Route::post("/login", [LoginController::class, "store"]);
