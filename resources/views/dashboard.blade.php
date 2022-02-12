@@ -64,7 +64,7 @@
                                 <th scope="row">{{ $job->id }}</th>
                                 <td>{{ $job->company_name }}</td>
                                 <td>{{ $job->job_title }}</td>
-                                <td>${{ $job->salary }}</td>
+                                <td>${{ number_format($job->salary, 0 , '.' , ',') }}</td>
                                 <td>{{ $job->date_applied }}</td>
                                 <td>{{ $job->status }}</td>
                                 <td class="d-flex">
