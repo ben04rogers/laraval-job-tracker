@@ -45,7 +45,7 @@
             </div>
 
             <table class="table table-striped">
-                <thead>
+                <thead class="table-dark">
                     <tr>
                     <th scope="col">#</th>
                     <th scope="col">Company</th>
@@ -65,14 +65,14 @@
                                 <td>{{ $job->company_name }}</td>
                                 <td>{{ $job->job_title }}</td>
                                 <td>${{ number_format($job->salary, 0 , '.' , ',') }}</td>
-                                <td>{{ $job->date_applied }}</td>
-                                <td>{{ $job->status }}</td>
+                                <td>{{ \Carbon\Carbon::createFromTimestamp(strtotime($job->date_applied))->diffForHumans() }}</td>
+                                <td><div class="alert py-0 px-2 m-0 job-status status-{{ Str::lower($job->status) }}">{{ $job->status }}</div></td>
                                 <td class="d-flex">
                                     <a href="{{ route("job", $job->id) }}" class="mx-2"><i class="fas fa-eye"></i></a>
                                     <form action="/delete/job/{{$job->id}}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="text-danger" style="border:none;" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash-alt"></i></button>
+                                        <button type="submit" class="text-danger job-delete-btn" style="border:none;" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash-alt"></i></button>
                                     </form>
                                 </i></td>
                             </tr>
@@ -88,7 +88,7 @@
             </div>
 
             <table class="table table-striped">
-                <thead>
+                <thead class="table-dark">
                     <tr>
                     <th scope="col">#</th>
                     <th scope="col">Company</th>
@@ -108,8 +108,8 @@
                                 <td>{{ $job->company_name }}</td>
                                 <td>{{ $job->job_title }}</td>
                                 <td>${{ $job->salary }}</td>
-                                <td>{{ $job->date_applied }}</td>
-                                <td>{{ $job->status }}</td>
+                                <td>{{ \Carbon\Carbon::createFromTimestamp(strtotime($job->date_applied))->diffForHumans() }}</td>
+                                <td><div class="alert py-0 px-2 m-0 job-status status-{{ Str::lower($job->status) }}">{{ $job->status }}</div></td>
                                 <td class="d-flex">
                                     <a href="{{ route("job", $job->id) }}" class="mx-2"><i class="fas fa-eye"></i></a>
                                     <form action="/delete/job/{{$job->id}}" method="post">

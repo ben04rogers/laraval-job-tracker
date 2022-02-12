@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Console\Input\Input;
-
+ 
 class DashboardController extends Controller
 {
     // Only logged in users can see dashboard

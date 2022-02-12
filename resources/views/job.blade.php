@@ -19,8 +19,8 @@
             </div>
     
             <div class="d-flex">
-                <p><i class="fas fa-money-bill-alt"></i><span class="text-muted mx-1"> ${{ $job_details->salary }}</span></p>
-                <p class="mx-4"><i class="fas fa-calendar-day"></i><span class="text-muted mx-1"> {{ $job_details->date_applied }}</span></p>
+                <p><i class="fas fa-money-bill-alt"></i><span class="text-muted mx-1"> ${{  number_format($job_details->salary, 0 , '.' , ',') }}</span></p>
+                <p class="mx-4"><i class="fas fa-calendar-day"></i><span class="text-muted mx-1"> {{ \Carbon\Carbon::createFromTimestamp(strtotime($job_details->date_applied))->diffForHumans() }}</span></p>
                 <p><i class="fas fa-info-circle"></i> <span class="text-muted mx-1">{{ $job_details->status }}</span></p>        
             </div>
         </div>
@@ -30,7 +30,13 @@
                 <div class="col-6">
                     <h3>Job Description</h3>
                     <div class="p-4 bg-white rounded description-output">
-                        {{ $job_details->description }}
+                        @if(empty($job_details->description))
+                            <p class="m-0">No description added</p>
+                        @else
+                            <p class="text-left job-description">
+                                {{ $job_details->description }}
+                            </p>
+                        @endif
                     </div>
                 </div>
             </div>
