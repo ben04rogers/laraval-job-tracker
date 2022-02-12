@@ -22,6 +22,9 @@
                 <p><i class="fas fa-money-bill-alt"></i><span class="text-muted mx-1"> ${{  number_format($job_details->salary, 0 , '.' , ',') }}</span></p>
                 <p class="mx-4"><i class="fas fa-calendar-day"></i><span class="text-muted mx-1"> {{ \Carbon\Carbon::createFromTimestamp(strtotime($job_details->date_applied))->diffForHumans() }}</span></p>
                 <p><i class="fas fa-info-circle"></i> <span class="text-muted mx-1">{{ $job_details->status }}</span></p>        
+                <a href="{{ $job_details->post_url }}" target="_blank" class="text-decoration-none">
+                    <p class="mx-4"><i class="fas fa-link text-dark"></i> <span class="text-muted mx-1">View Post</span></p>        
+                </a>
             </div>
         </div>
 
