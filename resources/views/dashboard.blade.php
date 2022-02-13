@@ -114,7 +114,7 @@
                                     <form action="/delete/job/{{$job->id}}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="text-danger" style="border:none;" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash-alt"></i></button>
+                                        <button type="submit" class="text-danger job-delete-btn" style="border:none;" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash-alt"></i></button>
                                     </form>
                                 </i></td>
                             </tr>

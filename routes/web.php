@@ -27,7 +27,7 @@ Route::get("/dashboard", [DashboardController::class, "index"])->name("dashboard
 Route::post("/dashboard", [DashboardController::class, "store"]);
 
 Route::get("/files", [FilesController::class, "index"])->name("files");
-Route::post("/files", [FilesController::class, "store"]);
+Route::post("/files/{id?}", [FilesController::class, "store"])->name("uploadfile");
 
 Route::get("/files/download/{file}", [FilesController::class, "download"]);
 Route::get("/files/view/{id}", [FilesController::class, "view"]);

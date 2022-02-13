@@ -24,7 +24,7 @@ class FilesController extends Controller
         return view('viewfile', compact("data"));
     }
 
-    public function store(Request $request) {
+    public function store($id = null, Request $request) {
 
         // 5MB Max Size
         $this->validate($request, [
@@ -37,6 +37,12 @@ class FilesController extends Controller
         $request->file->move("assets", $filename);
         $data->file=$filename;
         $data->user_id=$request->user()->id;
+
+        // If the file was uploaded on the job page, associate it with a job
+        if (!is_null($id)) {
+            $data->job_id = $id;
+        }
+
         $data->save();
         return back();
     }

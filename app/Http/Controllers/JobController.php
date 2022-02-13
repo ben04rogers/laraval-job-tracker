@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Job;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class JobController extends Controller
@@ -17,11 +18,12 @@ class JobController extends Controller
         // Get all jobs for the currently signed in user
         $job_details = DB::table("jobs")->where("id", $job_id)->first();
 
-        // echo(gettype($job_details));
-
+        // Get files for this specific job
+        $files = DB::table("files")->get()->where("user_id", Auth::user()->id)->where("job_id", $job_id);
 
         return view("job", [
-            'job_details' => $job_details
+            'job_details' => $job_details,
+            'files' => $files
         ]);    
     }
 

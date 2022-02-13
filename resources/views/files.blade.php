@@ -6,7 +6,7 @@
         <div class="border-bottom">
             <h1>Files</h1>
             <div class="upload-form-wrapper">
-                <form class="pt-2 pb-4 d-flex flex-column" action="{{ route("files") }}" method="post" enctype="multipart/form-data">
+                <form class="pt-2 pb-4 d-flex flex-column" action="{{ route("uploadfile", 99) }}" method="post" enctype="multipart/form-data">
                     @csrf
     
                     <div class="image-upload-wrap">
@@ -40,15 +40,16 @@
                   <tr>
                     <th scope="col">File</th>
                     <th scope="col"></th>
-                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
                     @foreach ($files as $file)
                         <tr>
-                            <td>{{ $file->file }}</td>
-                            <td><a href="{{ url("/files/view", $file->id) }}">View</a></td>
-                            <td><a href="{{ url("/files/download", $file->file) }}">Download</a></td>
+                            <td class="">{{ $file->file }}</td>
+                            <td class="d-flex justify-content-end">
+                                <a class="btn btn-outline-success mx-2" href="{{ url("/files/view", $file->id) }}">View</a>
+                                <a class="btn btn-outline-primary" href="{{ url("/files/download", $file->file) }}">Download</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
