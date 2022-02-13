@@ -53,6 +53,12 @@ class JobController extends Controller
     }
 
     public function delete($id) {
+
+        // Check user can delete job
+        if (Auth::user()->id != Job::find($id)->user_id) {
+            dd("You can't delete this job");
+        }
+
         DB::table("jobs")->where("id", $id)->delete();
         Session::flash('message', 'Job was deleted'); 
         return back();
