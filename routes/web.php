@@ -28,6 +28,7 @@ Route::post("/dashboard", [DashboardController::class, "store"]);
 
 Route::get("/files", [FilesController::class, "index"])->name("files");
 Route::post("/files/{id?}", [FilesController::class, "store"])->name("uploadfile");
+Route::delete("/files/delete/{id}", [FilesController::class, "delete"])->name("deletefile");
 
 Route::get("/files/download/{file}", [FilesController::class, "download"]);
 Route::get("/files/view/{id}", [FilesController::class, "view"]);

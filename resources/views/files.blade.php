@@ -47,8 +47,13 @@
                         <tr>
                             <td class="">{{ $file->file }}</td>
                             <td class="d-flex justify-content-end">
-                                <a class="btn btn-outline-success mx-2" href="{{ url("/files/view", $file->id) }}">View</a>
-                                <a class="btn btn-outline-primary" href="{{ url("/files/download", $file->file) }}">Download</a>
+                                <a class="btn btn-outline-success" href="{{ url("/files/view", $file->id) }}">View</a>
+                                <a class="btn btn-outline-primary mx-2" href="{{ url("/files/download", $file->file) }}">Download</a>
+                                <form action="/files/delete/{{$file->id}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash-alt"></i></button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

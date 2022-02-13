@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class JobController extends Controller
 {
@@ -52,11 +53,8 @@ class JobController extends Controller
     }
 
     public function delete($id) {
-
         DB::table("jobs")->where("id", $id)->delete();
-
         Session::flash('message', 'Job was deleted'); 
-
         return back();
-    }
+    }    
 }

@@ -14,7 +14,7 @@ class AddJobibToFilesTable extends Migration
     public function up()
     {
         Schema::table('files', function (Blueprint $table) {
-            $table->foreignId("job_id")->nullable()->constrained()->onDelete("cascade");
+            $table->foreignId("job_id")->nullable();
         });
     }
 
