@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewJob;
 use App\Models\Job;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Symfony\Component\Console\Input\Input;
- 
+
 class DashboardController extends Controller
 {
     // Only logged in users can see dashboard
@@ -21,7 +23,7 @@ class DashboardController extends Controller
 
         // Get all jobs for the currently signed in user
         $jobs = DB::table("jobs")->get()->where("user_id", Auth::user()->id);
-        
+
         // Chain where() for multiple conditions
         $sent_jobs = DB::table("jobs")->get()->where("user_id", Auth::user()->id)->where("status", "Sent")->count();
 
@@ -39,8 +41,8 @@ class DashboardController extends Controller
     }
 
     public function store(Request $request) {
-        // Validate request 
-        
+        // Validate request
+
         $this->validate($request, [
             'company_name' => 'required|max:255',
             'position_title' => 'required|max:255',
@@ -60,6 +62,9 @@ class DashboardController extends Controller
             'status' => $request->application_status,
             'date_applied' => date('Y-m-d H:i')
         ]);
+
+        // Send email
+//        Mail::to('benrogers1299@outlook.com')->send(new NewJob());
 
         return back();
     }
