@@ -142,9 +142,22 @@
     transition: all 0.2s ease;
 }
 
+.features-icons-item {
+    max-height: 250px;
+}
+
 /* Bootstrap Table */
 
 .table-blue-custom {
     background: #4c51bf;
     color: #c3dafe;
+}
+
+/* Breakpoints */
+
+@media (max-width: 768px) {
+    #navbarNav ul div {
+        display: flex;
+        flex-direction: column !important;
+   }
 }
