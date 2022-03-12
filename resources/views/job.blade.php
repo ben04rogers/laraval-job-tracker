@@ -17,13 +17,13 @@
                    Edit
                 </button>
             </div>
-    
+
             <div class="d-flex">
                 <p><i class="fas fa-money-bill-alt"></i><span class="text-muted mx-1"> ${{  number_format($job_details->salary, 0 , '.' , ',') }}</span></p>
                 <p class="mx-4"><i class="fas fa-calendar-day"></i><span class="text-muted mx-1"> {{ \Carbon\Carbon::createFromTimestamp(strtotime($job_details->date_applied))->diffForHumans() }}</span></p>
-                <p><i class="fas fa-info-circle"></i> <span class="text-muted mx-1">{{ $job_details->status }}</span></p>        
+                <p><i class="fas fa-info-circle"></i> <span class="text-muted mx-1">{{ $job_details->status }}</span></p>
                 <a href="{{ $job_details->post_url }}" target="_blank" class="text-decoration-none">
-                    <p class="mx-4"><i class="fas fa-link text-dark"></i> <span class="text-muted mx-1">View Post</span></p>        
+                    <p class="mx-4"><i class="fas fa-link text-dark"></i> <span class="text-muted mx-1">View Post</span></p>
                 </a>
             </div>
         </div>
@@ -45,9 +45,9 @@
                 <div class="col-6">
                     <h1>Files</h1>
                     <div class="upload-form-wrapper">
-                        <form class="pt-2 pb-4 d-flex flex-column" action="{{ route("uploadfile", 14) }}" method="post" enctype="multipart/form-data">
+                        <form class="pt-2 pb-4 d-flex flex-column" action="{{ route("uploadfile", $job_id) }}" method="post" enctype="multipart/form-data">
                             @csrf
-            
+
                             <div class="image-upload-wrap">
                                 <input class="file-upload-input" type='file' name="file" onchange="readURL(this);" accept="image/*,.pdf, .doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
                                 <div class="drag-text">
@@ -117,12 +117,12 @@
                         <label class="mb-1">Company:</label>
                         <input type="text" name="company_name" maxlength="50" placeholder="Company Name" value="{{ $job_details->company_name }}" autofocus required>
                     </div>
-        
+
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Position:</label>
                         <input type="text" name="position_title" maxlength="50" placeholder="Position Title" value="{{ $job_details->job_title }}" required>
                     </div>
-        
+
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Salary:</label>
                         <input type="number" name="salary" maxlength="50" placeholder="Salary" value="{{ $job_details->salary }}" required>
@@ -132,12 +132,12 @@
                         <label class="mb-1">Description:</label>
                         <textarea name="description" id="description" cols="30" rows="7" required>{{ $job_details->description }}</textarea>
                     </div>
-        
+
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Post URL:</label>
                         <input type="url" name="post_url" placeholder="https://example.com" value="{{ $job_details->post_url }}" required>
                     </div>
-        
+
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Status:</label>
                         <select name="application_status">
@@ -147,7 +147,7 @@
                             <option value="Expired">Expired</option>
                         </select>
                     </div>
-        
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" name="submit" class="btn btn-primary">Update</button>

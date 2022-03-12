@@ -15,12 +15,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
+
     <title>Job Application Tracker</title>
 </head>
 <body class="bg-light">
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-blue-custom">
         <div class="container">
           <a class="navbar-brand" href="{{ route("home") }}">JobTrack</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,7 +74,7 @@
             </ul>
           </div>
         </div>
-    </nav>    
+    </nav>
 
     <div class="container">
         @yield('content')

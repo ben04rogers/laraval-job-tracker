@@ -1,3 +1,16 @@
+/* Colours */
+.bg-blue-custom {
+    background: #434190;
+}
+
+.border-blue-custom {
+    border: 1px solid #434190;
+}
+
+.bg-orange-custom {
+    background: #dd6b20;
+}
+
 .job-delete-btn {
     background: none;
 }
@@ -127,4 +140,11 @@
 .remove-image:active {
     border: 0;
     transition: all 0.2s ease;
+}
+
+/* Bootstrap Table */
+
+.table-blue-custom {
+    background: #4c51bf;
+    color: #c3dafe;
 }

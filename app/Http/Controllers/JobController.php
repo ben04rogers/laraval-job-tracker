@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Storage;
 class JobController extends Controller
 {
     public function index(Request $request) {
-        
+
         // Get the id passed in url 'jobs/{id}/details'
         $job_id = $request->route('id');
 
@@ -24,13 +24,14 @@ class JobController extends Controller
 
         return view("job", [
             'job_details' => $job_details,
-            'files' => $files
-        ]);    
+            'files' => $files,
+            'job_id' => $job_id
+        ]);
     }
 
     public function update($id, Request $request) {
-        // Validate request 
-        
+        // Validate request
+
         $this->validate($request, [
             'company_name' => 'required|max:255',
             'position_title' => 'required|max:255',
@@ -60,7 +61,7 @@ class JobController extends Controller
         }
 
         DB::table("jobs")->where("id", $id)->delete();
-        Session::flash('message', 'Job was deleted'); 
+        Session::flash('message', 'Job was deleted');
         return back();
-    }    
+    }
 }

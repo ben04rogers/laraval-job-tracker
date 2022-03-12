@@ -11,7 +11,7 @@
                 <h1>Manage Your Job Applications</h1>
                 <p>JobTrack helps you keep track of all your job applications in one place.</p>
                 @guest
-                <a class="btn btn-primary" href="{{ route("register") }}" role="button">Sign Up</a>
+                <a class="btn bg-blue-custom text-white" href="{{ route("register") }}" role="button">Sign Up</a>
                 @endguest
 
                 @auth

@@ -14,7 +14,7 @@
                         <h1 class="fw-bold">
                             {{ $sent_jobs }}
                         </h1>
-                    </div>    
+                    </div>
                 </div>
                 <div class="col">
                     <div class="bg-white border d-flex flex-column align-items-center justify-content-center p-3 rounded">
@@ -22,7 +22,7 @@
                         <h1 class="fw-bold">
                             {{ $interviewing_jobs }}
                         </h1>
-                    </div> 
+                    </div>
                 </div>
                 <div class="col">
                     <div class="bg-white border d-flex flex-column align-items-center justify-content-center p-3 rounded">
@@ -30,7 +30,7 @@
                         <h1 class="fw-bold">
                             {{ $offer_jobs }}
                         </h1>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
             </div>
 
             <table class="table table-striped">
-                <thead class="table-dark">
+                <thead class="table-blue-custom">
                     <tr>
                     <th scope="col">#</th>
                     <th scope="col">Company</th>
@@ -53,7 +53,7 @@
                     <th scope="col">Date Applied</th>
                     <th scope="col">Status</th>
                     <th scope="col"></th>
-                    
+
                     </tr>
                 </thead>
                 <tbody>
@@ -87,7 +87,7 @@
             </div>
 
             <table class="table table-striped">
-                <thead class="table-dark">
+                <thead class="table-blue-custom">
                     <tr>
                     <th scope="col">#</th>
                     <th scope="col">Company</th>
@@ -96,7 +96,7 @@
                     <th scope="col">Date Applied</th>
                     <th scope="col">Status</th>
                     <th scope="col"></th>
-                    
+
                     </tr>
                 </thead>
                 <tbody>
@@ -140,12 +140,12 @@
                         <label class="mb-1">Company:</label>
                         <input type="text" name="company_name" maxlength="50" placeholder="Company Name" autofocus required>
                     </div>
-        
+
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Position:</label>
                         <input type="text" name="position_title" maxlength="50" placeholder="Position Title"  required>
                     </div>
-        
+
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Salary:</label>
                         <input type="number" name="salary" maxlength="50" placeholder="Salary" required>
@@ -155,12 +155,12 @@
                         <label class="mb-1">Description:</label>
                         <textarea name="description" id="description" cols="30" rows="7" required></textarea>
                     </div>
-        
+
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Post URL:</label>
                         <input type="url" name="post_url" placeholder="https://example.com" required>
                     </div>
-        
+
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Status:</label>
                         <select name="application_status">
@@ -170,7 +170,7 @@
                             <option value="Expired">Expired</option>
                         </select>
                     </div>
-        
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" name="submit" class="btn btn-primary">Submit</button>

@@ -20,8 +20,17 @@ class FilesController extends Controller
     }
 
     public function view($id) {
+
         $data = File::find($id);
-        return view('viewfile', compact("data"));
+
+        $user = Auth::user();
+
+        // Make sure users can only access their own files
+        if ($user->id === $data->user_id) {
+            return view('viewfile', compact("data"));
+        } else {
+            return redirect('/dashboard');
+        }
     }
 
     public function store($id = null, Request $request) {
@@ -50,7 +59,7 @@ class FilesController extends Controller
     public function delete($id) {
         $data = File::find($id);
         DB::table("files")->where("id", $id)->delete();
-        
+
         // Delete file from /public/assets folder
         unlink(public_path('/assets/'.$data->file));
         return back();
