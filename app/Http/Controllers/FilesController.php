@@ -33,7 +33,7 @@ class FilesController extends Controller
         }
     }
 
-    public function store($id = null, Request $request) {
+    public function store(Request $request, $id = null) {
 
         // 5MB Max Size
         $this->validate($request, [
@@ -51,6 +51,8 @@ class FilesController extends Controller
         // If the file was uploaded on the job page, associate it with a job
         if (!is_null($id)) {
             $data->job_id = $id;
+        } else {
+            $data->job_id = null;
         }
 
         $data->save();

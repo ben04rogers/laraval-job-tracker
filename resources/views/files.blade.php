@@ -6,9 +6,16 @@
         <div class="border-bottom">
             <h1>Files</h1>
             <div class="upload-form-wrapper">
-                <form class="pt-2 pb-4 d-flex flex-column" action="{{ route("uploadfile", 99) }}" method="post" enctype="multipart/form-data">
+                <form class="pt-2 pb-4 d-flex flex-column" action="{{ route("uploadfile") }}" method="post" enctype="multipart/form-data">
                     @csrf
-
+                    <div>
+                        @error("file_name")
+                        <div class="text-danger mb-2">
+                            {{ $message }}
+                        </div>
+                        @enderror("file_name")
+                        <input type="text" name="file_name" placeholder="File name" class="form-control">
+                    </div>
                     <div class="image-upload-wrap">
                         <input class="file-upload-input" type='file' name="file" onchange="readURL(this);" accept="image/*,.pdf, .doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
                         <div class="drag-text">
