@@ -43,16 +43,16 @@
                     </div>
 
                     <h3 class="mt-5">Check List</h3>
+                    @foreach ($todos as $todo)
                     <form action="{{ route("updatetodo") }}" method="POST" class="d-flex flex-column">
                         @csrf
                         @method('put')
-                        @foreach ($todos as $todo)
                             <div>
                                 <input type="checkbox" value="{{$todo->description}}" onchange="this.form.submit()" {{ $todo->completed ? 'checked' : ''}}> {{$todo->description}}
                                 <input type="hidden" name="todo_id" value="{{$todo->id}}">
                             </div>
-                        @endforeach
                     </form>
+                    @endforeach
 
                     <form action="{{ route("addtodo", $job_id) }}" method="POST">
                         @csrf
