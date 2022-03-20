@@ -81,6 +81,7 @@
             </table>
         </div>
 
+        @if ($expired_jobs > 0)
         <div class="current-applications">
             <div class="d-flex justify-content-between mt-5 mb-3">
                 <h3><i class="fas fa-times text-danger"></i></i><span class="mx-3">Expired Applications</span></h3>
@@ -123,6 +124,7 @@
                 </tbody>
             </table>
         </div>
+        @endif
 
         <!-- Add job modal popup -->
         <div class="modal fade" id="addJobModal" tabindex="-1" aria-labelledby="addJobModalLabel" aria-hidden="true">

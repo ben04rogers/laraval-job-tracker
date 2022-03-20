@@ -38,11 +38,12 @@ class FilesController extends Controller
         // 5MB Max Size
         $this->validate($request, [
             'file' => 'required|max:5000',
+            'file_name' => 'required'
         ]);
 
         $data = new File();
         $file = $request->file;
-        $filename=time().'.'.$file->getClientOriginalExtension();
+        $filename = $request->file_name.'.'.$file->getClientOriginalExtension();
         $request->file->move("assets", $filename);
         $data->file=$filename;
         $data->user_id=$request->user()->id;

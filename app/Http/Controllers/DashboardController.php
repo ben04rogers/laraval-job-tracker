@@ -31,12 +31,14 @@ class DashboardController extends Controller
 
         $offer_jobs = DB::table("jobs")->get()->where("user_id", Auth::user()->id)->where("status", "Offer")->count();
 
+        $expired_jobs = DB::table("jobs")->get()->where("user_id", Auth::user()->id)->where("status", "Expired")->count();
 
         return view("dashboard", [
             'jobs' => $jobs,
             'sent_jobs' => $sent_jobs,
             'interviewing_jobs' => $interviewing_jobs,
-            'offer_jobs' => $offer_jobs
+            'offer_jobs' => $offer_jobs,
+            'expired_jobs' => $expired_jobs
         ]);
     }
 

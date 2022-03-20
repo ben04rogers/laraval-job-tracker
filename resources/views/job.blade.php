@@ -23,7 +23,7 @@
                 <p class="mx-4"><i class="fas fa-calendar-day"></i><span class="text-muted mx-1"> {{ \Carbon\Carbon::createFromTimestamp(strtotime($job_details->date_applied))->diffForHumans() }}</span></p>
                 <p><i class="fas fa-info-circle"></i> <span class="text-muted mx-1">{{ $job_details->status }}</span></p>
                 <a href="{{ $job_details->post_url }}" target="_blank" class="text-decoration-none">
-                    <p class="mx-4"><i class="fas fa-link text-dark"></i> <span class="text-muted mx-1">View Post</span></p>
+                    <p class="mx-4"><i class="fas fa-link text-primary"></i> <span class="mx-1">View Post</span></p>
                 </a>
             </div>
         </div>
@@ -70,7 +70,14 @@
                     <div class="upload-form-wrapper">
                         <form class="pt-2 pb-4 d-flex flex-column" action="{{ route("uploadfile", $job_id) }}" method="post" enctype="multipart/form-data">
                             @csrf
-
+                            <div>
+                                @error("file_name")
+                                    <div class="text-danger mb-2">
+                                        {{ $message }}
+                                    </div>
+                                @enderror("file_name")
+                                <input type="text" name="file_name" placeholder="File name" class="form-control">
+                            </div>
                             <div class="image-upload-wrap">
                                 <input class="file-upload-input" type='file' name="file" onchange="readURL(this);" accept="image/*,.pdf, .doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
                                 <div class="drag-text">
@@ -126,9 +133,9 @@
         <div class="modal fade" id="editJobModal" tabindex="-1" aria-labelledby="editJobModalLabel" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header bg-primary">
+                <div class="modal-header bg-blue-custom">
                 <h5 class="modal-title text-white" id="editJobModalLabel">Edit Job Details</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                 <form action="{{ route("updatejob", $job_details->id) }}" method="POST" class="add-job-form">
