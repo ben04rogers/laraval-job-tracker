@@ -22,10 +22,14 @@ class JobController extends Controller
         // Get files for this specific job
         $files = DB::table("files")->get()->where("user_id", Auth::user()->id)->where("job_id", $job_id);
 
+        // Get all todos for this specific job and user
+        $todos = DB::table("todos")->get()->where("user_id", Auth::user()->id)->where("job_id", $job_id);
+
         return view("job", [
             'job_details' => $job_details,
             'files' => $files,
-            'job_id' => $job_id
+            'job_id' => $job_id,
+            'todos' => $todos
         ]);
     }
 

@@ -41,6 +41,29 @@
                             </p>
                         @endif
                     </div>
+
+                    <h3 class="mt-5">Check List</h3>
+                    <form action="{{ route("updatetodo") }}" method="POST" class="d-flex flex-column">
+                        @csrf
+                        @method('put')
+                        @foreach ($todos as $todo)
+                            <div>
+                                <input type="checkbox" value="{{$todo->description}}" onchange="this.form.submit()" {{ $todo->completed ? 'checked' : ''}}> {{$todo->description}}
+                                <input type="hidden" name="todo_id" value="{{$todo->id}}">
+                            </div>
+                        @endforeach
+                    </form>
+
+                    <form action="{{ route("addtodo", $job_id) }}" method="POST">
+                        @csrf
+                        <div class="input-group my-3">
+                            <input type="text" class="form-control" placeholder="Add a task..." name="todo_description">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary rounded" type="submit">Add</button>
+                            </div>
+                        </div>
+                    </form>
+
                 </div>
                 <div class="col-6">
                     <h1>Files</h1>

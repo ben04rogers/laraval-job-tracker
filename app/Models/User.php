@@ -47,4 +47,10 @@ class User extends Authenticatable
     public function jobs() {
         return $this->hasMany(Job::class);
     }
+
+    // User has many todos
+    // user()->todos()
+    public function todos() {
+        return $this->hasMany(Todo::class);
+    }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\FilesController;
@@ -36,6 +37,9 @@ Route::get("/files/view/{id}", [FilesController::class, "view"]);
 Route::get("/jobs/{id}/details", [JobController::class, "index"])->name("job");
 Route::delete("/delete/job/{id}", [JobController::class, "delete"])->name("deletejob");
 Route::put("/jobs/{id}/update", [JobController::class, "update"])->name("updatejob");
+
+Route::put("todo/update", [TodoController::class, "updateTodo"])->name("updatetodo");
+Route::post("todo/{id}/add", [TodoController::class, "addtodo"])->name("addtodo");
 
 Route::get("/login", [LoginController::class, "index"])->name("login");
 Route::post("/login", [LoginController::class, "store"]);
