@@ -185,5 +185,5 @@ body {
 }
 
 .job-card {
-    width: 30%;
+    width: calc(33.33% - 10px);
 }

@@ -43,48 +43,52 @@
                 </button>
             </div>
 
-            <table class="table table-striped">
-                <thead class="table-blue-custom">
-                    <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Company</th>
-                    <th scope="col">Position Title</th>
-                    <th scope="col">Salary</th>
-                    <th scope="col">Date Applied</th>
-                    <th scope="col">Status</th>
-                    <th scope="col"></th>
+{{--            <table class="table table-striped">--}}
+{{--                <thead class="table-blue-custom">--}}
+{{--                    <tr>--}}
+{{--                    <th scope="col">#</th>--}}
+{{--                    <th scope="col">Company</th>--}}
+{{--                    <th scope="col">Position Title</th>--}}
+{{--                    <th scope="col">Salary</th>--}}
+{{--                    <th scope="col">Date Applied</th>--}}
+{{--                    <th scope="col">Status</th>--}}
+{{--                    <th scope="col"></th>--}}
 
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($jobs as $job)
-                        @if ($job->status !== "Expired")
-                            <tr class="clickable-row" ?>
-                                <th scope="row">{{ $job->id }}</th>
-                                <td>{{ $job->company_name }}</td>
-                                <td>{{ $job->job_title }}</td>
-                                <td>${{ number_format($job->salary, 0 , '.' , ',') }}</td>
-                                <td>{{ \Carbon\Carbon::createFromTimestamp(strtotime($job->date_applied))->diffForHumans() }}</td>
-                                <td><div class="alert py-0 px-2 m-0 job-status status-{{ Str::lower($job->status) }}">{{ $job->status }}</div></td>
-                                <td class="d-flex">
-                                    <a href="{{ route("job", $job->id) }}" class="mx-2"><i class="fas fa-eye"></i></a>
-                                    <form action="/delete/job/{{$job->id}}" method="post">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="text-danger job-delete-btn" style="border:none;" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash-alt"></i></button>
-                                    </form>
-                                </i></td>
-                            </tr>
-                        @endif
-                    @endforeach
-                </tbody>
-            </table>
+{{--                    </tr>--}}
+{{--                </thead>--}}
+{{--                <tbody>--}}
+{{--                    @foreach ($jobs as $job)--}}
+{{--                        @if ($job->status !== "Expired")--}}
+{{--                            <tr class="clickable-row" ?>--}}
+{{--                                <th scope="row">{{ $job->id }}</th>--}}
+{{--                                <td>{{ $job->company_name }}</td>--}}
+{{--                                <td>{{ $job->job_title }}</td>--}}
+{{--                                <td>${{ number_format($job->salary, 0 , '.' , ',') }}</td>--}}
+{{--                                <td>{{ \Carbon\Carbon::createFromTimestamp(strtotime($job->date_applied))->diffForHumans() }}</td>--}}
+{{--                                <td><div class="alert py-0 px-2 m-0 job-status status-{{ Str::lower($job->status) }}">{{ $job->status }}</div></td>--}}
+{{--                                <td class="d-flex">--}}
+{{--                                    <a href="{{ route("job", $job->id) }}" class="mx-2"><i class="fas fa-eye"></i></a>--}}
+{{--                                    <form action="/delete/job/{{$job->id}}" method="post">--}}
+{{--                                        @csrf--}}
+{{--                                        @method('delete')--}}
+{{--                                        <button type="submit" class="text-danger job-delete-btn" style="border:none;" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash-alt"></i></button>--}}
+{{--                                    </form>--}}
+{{--                                </i></td>--}}
+{{--                            </tr>--}}
+{{--                        @endif--}}
+{{--                    @endforeach--}}
+{{--                </tbody>--}}
+{{--            </table>--}}
 
             <div class="jobs-list-container d-flex">
                 @foreach ($jobs as $job)
-                    <div class="job-card rounded border bg-white">
+                    @if ($job->status !== "Expired")
+                    <div class="job-card rounded border bg-white shadow-sm">
                         <div class="p-3">
-                            <h4>{{ $job->company_name }}</h4>
+                            <div class="d-flex justify-content-between">
+                                <h4>{{ $job->company_name }}</h4>
+                                <p class="alert alert-success py-1 px-2">{{ $job->status }}</p>
+                            </div>
                             <div class="d-flex">
                                 <p class="text-muted my-1">Position: </p>
                                 <p class="mx-3 my-1">{{ $job->job_title }}</p>
@@ -102,15 +106,16 @@
 
                         </div>
 
-                        <div class="bg-light d-flex">
+                        <div class="bg-light d-flex justify-content-end">
                             <a href="{{ route("job", $job->id) }}" class="btn bg-blue-custom text-white m-2">View <i class="fas fa-arrow-alt-circle-right"></i></a>
-                            <form action="/delete/job/{{$job->id}}" method="post">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger m-2">Remove</button>
-                            </form>
+{{--                            <form action="/delete/job/{{$job->id}}" method="post">--}}
+{{--                                @csrf--}}
+{{--                                @method('delete')--}}
+{{--                                <button type="submit" class="btn btn-danger m-2">Remove</button>--}}
+{{--                            </form>--}}
                         </div>
                     </div>
+                    @endif
                 @endforeach
             </div>
 
@@ -123,42 +128,78 @@
                 <h3><i class="fas fa-times text-danger"></i></i><span class="mx-3">Expired Applications</span></h3>
             </div>
 
-            <table class="table table-striped">
-                <thead class="table-blue-custom">
-                    <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Company</th>
-                    <th scope="col">Position Title</th>
-                    <th scope="col">Salary</th>
-                    <th scope="col">Date Applied</th>
-                    <th scope="col">Status</th>
-                    <th scope="col"></th>
+{{--            <table class="table table-striped">--}}
+{{--                <thead class="table-blue-custom">--}}
+{{--                    <tr>--}}
+{{--                    <th scope="col">#</th>--}}
+{{--                    <th scope="col">Company</th>--}}
+{{--                    <th scope="col">Position Title</th>--}}
+{{--                    <th scope="col">Salary</th>--}}
+{{--                    <th scope="col">Date Applied</th>--}}
+{{--                    <th scope="col">Status</th>--}}
+{{--                    <th scope="col"></th>--}}
 
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($jobs as $job)
-                        @if ($job->status === "Expired")
-                            <tr class="clickable-row" ?>
-                                <th scope="row">{{ $job->id }}</th>
-                                <td>{{ $job->company_name }}</td>
-                                <td>{{ $job->job_title }}</td>
-                                <td>${{ $job->salary }}</td>
-                                <td>{{ \Carbon\Carbon::createFromTimestamp(strtotime($job->date_applied))->diffForHumans() }}</td>
-                                <td><div class="alert py-0 px-2 m-0 job-status status-{{ Str::lower($job->status) }}">{{ $job->status }}</div></td>
-                                <td class="d-flex">
-                                    <a href="{{ route("job", $job->id) }}" class="mx-2"><i class="fas fa-eye"></i></a>
-                                    <form action="/delete/job/{{$job->id}}" method="post">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="text-danger job-delete-btn" style="border:none;" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash-alt"></i></button>
-                                    </form>
-                                </i></td>
-                            </tr>
-                        @endif
-                    @endforeach
-                </tbody>
-            </table>
+{{--                    </tr>--}}
+{{--                </thead>--}}
+{{--                <tbody>--}}
+{{--                    @foreach ($jobs as $job)--}}
+{{--                        @if ($job->status === "Expired")--}}
+{{--                            <tr class="clickable-row" ?>--}}
+{{--                                <th scope="row">{{ $job->id }}</th>--}}
+{{--                                <td>{{ $job->company_name }}</td>--}}
+{{--                                <td>{{ $job->job_title }}</td>--}}
+{{--                                <td>${{ $job->salary }}</td>--}}
+{{--                                <td>{{ \Carbon\Carbon::createFromTimestamp(strtotime($job->date_applied))->diffForHumans() }}</td>--}}
+{{--                                <td><div class="alert py-0 px-2 m-0 job-status status-{{ Str::lower($job->status) }}">{{ $job->status }}</div></td>--}}
+{{--                                <td class="d-flex">--}}
+{{--                                    <a href="{{ route("job", $job->id) }}" class="mx-2"><i class="fas fa-eye"></i></a>--}}
+{{--                                    <form action="/delete/job/{{$job->id}}" method="post">--}}
+{{--                                        @csrf--}}
+{{--                                        @method('delete')--}}
+{{--                                        <button type="submit" class="text-danger job-delete-btn" style="border:none;" onclick="return confirm('Are you sure you want to delete?')"><i class="fas fa-trash-alt"></i></button>--}}
+{{--                                    </form>--}}
+{{--                                </i></td>--}}
+{{--                            </tr>--}}
+{{--                        @endif--}}
+{{--                    @endforeach--}}
+{{--                </tbody>--}}
+{{--            </table>--}}
+
+            @foreach ($jobs as $job)
+                @if ($job->status === "Expired")
+                    <div class="job-card rounded border bg-white shadow-sm">
+                        <div class="p-3">
+                            <div class="d-flex justify-content-between">
+                                <h4>{{ $job->company_name }}</h4>
+                                <p class="alert alert-danger py-1 px-2">{{ $job->status }}</p>
+                            </div>
+                            <div class="d-flex">
+                                <p class="text-muted my-1">Position: </p>
+                                <p class="mx-3 my-1">{{ $job->job_title }}</p>
+                            </div>
+
+                            <div class="d-flex">
+                                <p class="text-muted my-1">Salary: </p>
+                                <p class="mx-3 my-1">${{ number_format($job->salary, 0 , '.' , ',') }}</p>
+                            </div>
+
+                            <div class="d-flex">
+                                <p class="text-muted my-1">Type: </p>
+                                <p class="mx- my-1">{{ $job->contract_type }}</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-light d-flex">
+                            <a href="{{ route("job", $job->id) }}" class="btn bg-blue-custom text-white m-2">View <i class="fas fa-arrow-alt-circle-right"></i></a>
+{{--                            <form action="/delete/job/{{$job->id}}" method="post">--}}
+{{--                                @csrf--}}
+{{--                                @method('delete')--}}
+{{--                                <button type="submit" class="btn btn-danger m-2">Remove</button>--}}
+{{--                            </form>--}}
+                        </div>
+                    </div>
+                @endif
+            @endforeach
         </div>
         @endif
 
