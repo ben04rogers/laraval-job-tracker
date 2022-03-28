@@ -9,27 +9,27 @@
         <div class="top-grid my-5">
             <div class="row gx-4">
                 <div class="col">
-                    <div class="bg-white border d-flex flex-column align-items-center justify-content-center p-3 rounded">
-                        <h5 class="text-muted">Sent Applications</h5>
+                    <div class="bg-white border d-flex flex-column px-4 py-3 rounded">
                         <h1 class="fw-bold">
                             {{ $sent_jobs }}
                         </h1>
+                        <h5 class="text-muted">Sent Applications</h5>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="bg-white border d-flex flex-column align-items-center justify-content-center p-3 rounded">
-                        <h5 class="text-muted">Interviewing</h5>
+                    <div class="bg-white border d-flex flex-column px-4 py-3 rounded">
                         <h1 class="fw-bold">
                             {{ $interviewing_jobs }}
                         </h1>
+                        <h5 class="text-muted">Interviewing</h5>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="bg-white border d-flex flex-column align-items-center justify-content-center p-3 rounded">
-                        <h5 class="text-muted">Offers</h5>
+                    <div class="bg-white border d-flex flex-column px-4 py-3 rounded">
                         <h1 class="fw-bold">
                             {{ $offer_jobs }}
                         </h1>
+                        <h5 class="text-muted">Offers</h5>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
         <div class="current-applications">
             <div class="d-flex justify-content-between my-3">
                 <h3><i class="fas fa-briefcase text-success"></i></i><span class="mx-3">Current Applications</span></h3>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addJobModal">
+                <button type="button" class="btn bg-blue-custom text-white" data-bs-toggle="modal" data-bs-target="#addJobModal">
                     Add Job
                 </button>
             </div>
@@ -130,7 +130,7 @@
         <div class="modal fade" id="addJobModal" tabindex="-1" aria-labelledby="addJobModalLabel" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header bg-primary">
+                <div class="modal-header bg-blue-custom">
                 <h5 class="modal-title text-white" id="addJobModalLabel">Add a Job</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -174,8 +174,7 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" name="submit" class="btn bg-blue-custom text-white">Submit</button>
                     </div>
                 </form>
                 </div>
