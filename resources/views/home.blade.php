@@ -45,9 +45,9 @@
                 </div>
                 <div class="col-lg-4">
                 <div class="features-icons-item mx-auto mb-0 mb-lg-3 bg-white p-5 rounded border rounded">
-                    <i class="fas fa-address-book h1"></i>
-                    <h3 class="fw-bold">Add Contacts</h3>
-                    <p class="lead mb-0">Add recruiter contact information for each job</p>
+                    <i class="fas fa-tasks h1"></i>
+                    <h3 class="fw-bold">Manage Tasks</h3>
+                    <p class="lead mb-0">Keep track of everything you need to do to get your dream job</p>
                 </div>
                 </div>
             </div>

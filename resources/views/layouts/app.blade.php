@@ -32,14 +32,14 @@
             <ul class="navbar-nav w-100 d-flex justify-content-between">
                 <div class="d-flex">
                     <li class="nav-item active">
-                      <a class="nav-link active" href="{{ route("home") }}">Home</a>
+                      <a class="nav-link active text-black" href="{{ route("home") }}">Home</a>
                     </li>
                     <li class="nav-item active">
-                      <a class="nav-link active" href="{{ route("dashboard") }}">Dashboard</a>
+                      <a class="nav-link active text-black" href="{{ route("dashboard") }}">Dashboard</a>
                     </li>
                     @auth
                     <li class="nav-item active">
-                      <a class="nav-link active" href="{{ route("files") }}">Files</a>
+                      <a class="nav-link active text-black" href="{{ route("files") }}">Files</a>
                     </li>
                     @endauth
                 </div>
