@@ -2,8 +2,7 @@
 
 @section('content')
     <div>
-        <div class="d-flex justify-content-center align-items-center py-5 row">
-
+        <div class="d-flex justify-content-center align-items-center py-5 row auth-container">
             <div class="col-5">
                 @if (session("status"))
                     <div class="alert alert-danger">

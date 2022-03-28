@@ -169,3 +169,21 @@ body {
         flex-direction: column !important;
    }
 }
+
+/* Login and Register container */
+
+.auth-container {
+    height: 70vh;
+}
+
+
+/* Jobs Card  */
+
+.jobs-list-container {
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.job-card {
+    width: 30%;
+}

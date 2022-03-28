@@ -2,7 +2,7 @@
 
 @section('content')
     <div>
-        <div class="d-flex justify-content-center align-items-center py-5 row">
+        <div class="d-flex justify-content-center align-items-center py-5 row auth-container">
             <div class="col-5">
                 <h2 class="text-center">Register for free</h2>
 

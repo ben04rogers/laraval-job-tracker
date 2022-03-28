@@ -79,6 +79,42 @@
                     @endforeach
                 </tbody>
             </table>
+
+            <div class="jobs-list-container d-flex">
+                @foreach ($jobs as $job)
+                    <div class="job-card rounded border bg-white">
+                        <div class="p-3">
+                            <h4>{{ $job->company_name }}</h4>
+                            <div class="d-flex">
+                                <p class="text-muted my-1">Position: </p>
+                                <p class="mx-3 my-1">{{ $job->job_title }}</p>
+                            </div>
+
+                            <div class="d-flex">
+                                <p class="text-muted my-1">Salary: </p>
+                                <p class="mx-3 my-1">${{ number_format($job->salary, 0 , '.' , ',') }}</p>
+                            </div>
+
+                            <div class="d-flex">
+                                <p class="text-muted my-1">Type: </p>
+                                <p class="mx- my-1">{{ $job->contract_type }}</p>
+                            </div>
+
+                        </div>
+
+                        <div class="bg-light d-flex">
+                            <a href="{{ route("job", $job->id) }}" class="btn bg-blue-custom text-white m-2">View <i class="fas fa-arrow-alt-circle-right"></i></a>
+                            <form action="/delete/job/{{$job->id}}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger m-2">Remove</button>
+                            </form>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+
         </div>
 
         @if ($expired_jobs > 0)
