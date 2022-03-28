@@ -19,6 +19,14 @@
     width: fit-content;
 }
 
+.logo {
+    height: 40px;
+}
+
+body {
+    background: #F9F8FD;
+}
+
 /* Job status rows in table on dashboard */
 .status-sent {
     color: #141619;

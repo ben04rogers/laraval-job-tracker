@@ -20,9 +20,11 @@
 </head>
 <body class="bg-light">
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-blue-custom">
+    <nav class="navbar navbar-expand-md navbar-dark border-bottom shadow-sm bg-white">
         <div class="container">
-          <a class="navbar-brand" href="{{ route("home") }}">JobTrack</a>
+          <a class="navbar-brand" href="{{ route("home") }}">
+              <img src="{{url('/assets/images/job-track-logo.svg')}}" class="logo">
+          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -46,7 +48,7 @@
               <div class="d-flex">
                   <li class="nav-item">
                     <div class="dropdown">
-                        <button class="btn dropdown-toggle text-white" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                             Welcome, {{ Auth::user()->name }}
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -64,10 +66,10 @@
               @guest
               <div class="d-flex">
                   <li class="nav-item">
-                    <a class="btn btn-outline-primary mx-2" href="{{ route("login") }}"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a class="btn border-blue-custom mx-2" href="{{ route("login") }}"><i class="fas fa-sign-in-alt"></i> Login</a>
                   </li>
                   <li class="nav-item">
-                    <a class="btn btn-primary" href="{{ route("register") }}"><i class="fas fa-user-plus"></i> Register</a>
+                    <a class="btn bg-blue-custom text-white" href="{{ route("register") }}"><i class="fas fa-user-plus"></i> Register</a>
                   </li>
               </div>
               @endguest

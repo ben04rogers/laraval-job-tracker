@@ -15,7 +15,7 @@
                 @endguest
 
                 @auth
-                <a class="btn btn-primary mb-5 m-auto" href="{{ route("dashboard") }}" role="button">Dashboard</a>
+                <a class="btn bg-blue-custom text-white mb-5 m-auto" href="{{ route("dashboard") }}" role="button">Dashboard</a>
                 @endauth
             </div>
 
