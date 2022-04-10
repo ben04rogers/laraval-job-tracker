@@ -78,7 +78,8 @@
                             <div class="image-upload-wrap">
                                 <input class="file-upload-input" type='file' name="file" onchange="readURL(this);" accept="image/*,.pdf, .doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
                                 <div class="drag-text">
-                                <h3>Add a file</h3>
+                                    <h3 class="my-3">Drop your file here, or <span class="text-primary">browse</span></h3>
+                                    <p class="text-muted">Supports PDF, DOC, DOCX</p>
                                 </div>
                             </div>
                             <div class="file-upload-content">
@@ -142,32 +143,32 @@
                     <input type="hidden" name="action" value="add_job">
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Company:</label>
-                        <input type="text" name="company_name" maxlength="50" placeholder="Company Name" value="{{ $job_details->company_name }}" autofocus required>
+                        <input class="form-control" type="text" name="company_name" maxlength="50" placeholder="Company Name" value="{{ $job_details->company_name }}" autofocus required>
                     </div>
 
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Position:</label>
-                        <input type="text" name="position_title" maxlength="50" placeholder="Position Title" value="{{ $job_details->job_title }}" required>
+                        <input class="form-control" type="text" name="position_title" maxlength="50" placeholder="Position Title" value="{{ $job_details->job_title }}" required>
                     </div>
 
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Salary:</label>
-                        <input type="number" name="salary" maxlength="50" placeholder="Salary" value="{{ $job_details->salary }}" required>
+                        <input class="form-control" type="number" name="salary" maxlength="50" placeholder="Salary" value="{{ $job_details->salary }}" required>
                     </div>
 
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Description:</label>
-                        <textarea name="description" id="description" cols="30" rows="7" required>{{ $job_details->description }}</textarea>
+                        <textarea class="form-control" name="description" id="description" cols="30" rows="7" required>{{ $job_details->description }}</textarea>
                     </div>
 
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Post URL:</label>
-                        <input type="url" name="post_url" placeholder="https://example.com" value="{{ $job_details->post_url }}" required>
+                        <input class="form-control" type="url" name="post_url" placeholder="https://example.com" value="{{ $job_details->post_url }}" required>
                     </div>
 
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Status:</label>
-                        <select name="application_status">
+                        <select name="application_status" class="form-select">
                             <option value="Sent" selected>Sent</option>
                             <option value="Interviewing">Interviewing</option>
                             <option value="Offer">Offer</option>
@@ -176,7 +177,6 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" name="submit" class="btn btn-primary">Update</button>
                     </div>
                 </form>

@@ -22,7 +22,7 @@ class DashboardController extends Controller
     public function index() {
 
         // Get all jobs for the currently signed in user
-        $jobs = DB::table("jobs")->get()->where("user_id", Auth::user()->id);
+        $jobs = DB::table("jobs")->get()->where("user_id", Auth::user()->id)->where('status');
 
         // Chain where() for multiple conditions
         $sent_jobs = DB::table("jobs")->get()->where("user_id", Auth::user()->id)->where("status", "Sent")->count();

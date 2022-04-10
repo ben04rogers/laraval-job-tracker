@@ -16,7 +16,7 @@
                         @enderror("file_name")
                         <input type="text" name="file_name" placeholder="File name" class="form-control">
                     </div>
-                    <div class="image-upload-wrap rounded">
+                    <div class="image-upload-wrap">
                         <input class="file-upload-input" type='file' name="file" onchange="readURL(this);" accept="image/*,.pdf, .doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
                         <div class="drag-text">
                             <h3 class="my-3">Drop your file here, or <span class="text-primary">browse</span></h3>

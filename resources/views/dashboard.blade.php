@@ -83,49 +83,16 @@
             <div class="jobs-list-container d-flex">
                 @foreach ($jobs as $job)
                     @if ($job->status !== "Expired")
-                    <div class="job-card rounded border bg-white shadow-sm">
-                        <div class="p-3">
-                            <div class="d-flex justify-content-between">
-                                <h4>{{ $job->company_name }}</h4>
-                                <p class="alert alert-success py-1 px-2">{{ $job->status }}</p>
-                            </div>
-                            <div class="d-flex">
-                                <p class="text-muted my-1">Position: </p>
-                                <p class="mx-3 my-1">{{ $job->job_title }}</p>
-                            </div>
-
-                            <div class="d-flex">
-                                <p class="text-muted my-1">Salary: </p>
-                                <p class="mx-3 my-1">${{ number_format($job->salary, 0 , '.' , ',') }}</p>
-                            </div>
-
-                            <div class="d-flex">
-                                <p class="text-muted my-1">Type: </p>
-                                <p class="mx- my-1">{{ $job->contract_type }}</p>
-                            </div>
-
-                        </div>
-
-                        <div class="bg-light d-flex justify-content-end">
-                            <a href="{{ route("job", $job->id) }}" class="btn bg-blue-custom text-white m-2">View <i class="fas fa-arrow-alt-circle-right"></i></a>
-{{--                            <form action="/delete/job/{{$job->id}}" method="post">--}}
-{{--                                @csrf--}}
-{{--                                @method('delete')--}}
-{{--                                <button type="submit" class="btn btn-danger m-2">Remove</button>--}}
-{{--                            </form>--}}
-                        </div>
-                    </div>
+                        <x-job-card :job="$job"></x-job-card>
                     @endif
                 @endforeach
             </div>
-
-
         </div>
 
         @if ($expired_jobs > 0)
-        <div class="current-applications">
+        <div class="expired-applications">
             <div class="d-flex justify-content-between mt-5 mb-3">
-                <h3><i class="fas fa-times text-danger"></i></i><span class="mx-3">Expired Applications</span></h3>
+                <h3><i class="fas fa-times text-danger"></i><span class="mx-3">Expired Applications</span></h3>
             </div>
 
 {{--            <table class="table table-striped">--}}
@@ -165,41 +132,13 @@
 {{--                </tbody>--}}
 {{--            </table>--}}
 
-            @foreach ($jobs as $job)
-                @if ($job->status === "Expired")
-                    <div class="job-card rounded border bg-white shadow-sm">
-                        <div class="p-3">
-                            <div class="d-flex justify-content-between">
-                                <h4>{{ $job->company_name }}</h4>
-                                <p class="alert alert-danger py-1 px-2">{{ $job->status }}</p>
-                            </div>
-                            <div class="d-flex">
-                                <p class="text-muted my-1">Position: </p>
-                                <p class="mx-3 my-1">{{ $job->job_title }}</p>
-                            </div>
-
-                            <div class="d-flex">
-                                <p class="text-muted my-1">Salary: </p>
-                                <p class="mx-3 my-1">${{ number_format($job->salary, 0 , '.' , ',') }}</p>
-                            </div>
-
-                            <div class="d-flex">
-                                <p class="text-muted my-1">Type: </p>
-                                <p class="mx- my-1">{{ $job->contract_type }}</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-light d-flex">
-                            <a href="{{ route("job", $job->id) }}" class="btn bg-blue-custom text-white m-2">View <i class="fas fa-arrow-alt-circle-right"></i></a>
-{{--                            <form action="/delete/job/{{$job->id}}" method="post">--}}
-{{--                                @csrf--}}
-{{--                                @method('delete')--}}
-{{--                                <button type="submit" class="btn btn-danger m-2">Remove</button>--}}
-{{--                            </form>--}}
-                        </div>
-                    </div>
-                @endif
-            @endforeach
+            <div class="jobs-list-container d-flex">
+                @foreach ($jobs as $job)
+                    @if ($job->status === "Expired")
+                        <x-job-card :job="$job"></x-job-card>
+                    @endif
+                @endforeach
+            </div>
         </div>
         @endif
 
@@ -208,8 +147,8 @@
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-blue-custom">
-                <h5 class="modal-title text-white" id="addJobModalLabel">Add a Job</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title text-white" id="addJobModalLabel">Add a Job</h5>
+                    <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                 <form action="{{ route("dashboard") }}" method="POST" class="add-job-form">
@@ -217,32 +156,32 @@
                     <input type="hidden" name="action" value="add_job">
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Company:</label>
-                        <input type="text" name="company_name" maxlength="50" placeholder="Company Name" autofocus required>
+                        <input class="form-control" type="text" name="company_name" maxlength="50" placeholder="Company Name" autofocus required>
                     </div>
 
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Position:</label>
-                        <input type="text" name="position_title" maxlength="50" placeholder="Position Title"  required>
+                        <input class="form-control" type="text" name="position_title" maxlength="50" placeholder="Position Title"  required>
                     </div>
 
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Salary:</label>
-                        <input type="number" name="salary" maxlength="50" placeholder="Salary" required>
+                        <input class="form-control" type="number" name="salary" maxlength="50" placeholder="Salary" required>
                     </div>
 
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Description:</label>
-                        <textarea name="description" id="description" cols="30" rows="7" required></textarea>
+                        <textarea class="form-control" name="description" id="description" cols="30" rows="7" required></textarea>
                     </div>
 
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Post URL:</label>
-                        <input type="url" name="post_url" placeholder="https://example.com" required>
+                        <input class="form-control" name="post_url" placeholder="https://example.com" required>
                     </div>
 
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Status:</label>
-                        <select name="application_status">
+                        <select name="application_status" class="form-select">
                             <option value="Sent" selected>Sent</option>
                             <option value="Interviewing">Interviewing</option>
                             <option value="Offer">Offer</option>
