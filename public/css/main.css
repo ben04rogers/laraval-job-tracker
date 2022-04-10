@@ -56,11 +56,6 @@ body {
     white-space: pre-line;
 }
 
-.upload-form-wrapper {
-    /* max-width: 600px; */
-    /* margin: auto; */
-}
-
 .file-upload {
     background-color: #ffffff;
     width: 600px;
@@ -86,7 +81,7 @@ body {
 
 .image-upload-wrap {
     margin-top: 20px;
-    border: 4px dashed #0b5ed7;
+    border: 4px dashed lightgray;
     position: relative;
     min-height: 250px;
     display: flex;
@@ -111,9 +106,7 @@ body {
 
 .drag-text h3 {
     font-weight: 100;
-    text-transform: uppercase;
     color: black;
-    padding: 60px 0;
 }
 
 .file-upload-image {
