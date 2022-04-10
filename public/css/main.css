@@ -170,7 +170,6 @@ body {
     height: 70vh;
 }
 
-
 /* Jobs Card  */
 
 .jobs-list-container {
@@ -180,4 +179,9 @@ body {
 
 .job-card {
     width: calc(33.33% - 10px);
+    background: white;
+}
+
+.job-card:hover {
+    background: #f7f7f7;
 }

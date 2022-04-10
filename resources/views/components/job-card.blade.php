@@ -1,6 +1,6 @@
 @props(['job'])
 <a href="{{ route("job", $job->id) }}" class="job-card text-decoration-none">
-    <div class="rounded border bg-white shadow-sm">
+    <div class="rounded border shadow-sm">
         <div class="p-3">
             <div class="d-flex justify-content-between">
                 <h4 class="text-dark">{{ $job->company_name }}</h4>

@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="//icons/favicon3.ico"><title>GaboGZ | portfolio</title><meta name="description" content="Gabriel Garate's Portfolio. Software Engineer | Web Developer | Shopify Developer"><meta property="og:site_name" content="Gabriel Garate"><meta property="og:url" content="https://www.gabogz.com"><meta property="og:title" content="Gabriel Garate"><meta property="og:type" content="website"><meta property="og:description" content="Gabriel Garate's Portfolio. Software Engineer | Web Developer | Shopify Developer"><meta property="og:image" content="https://cdn.shopify.com/s/files/1/0268/6445/1697/files/portfolio-cover.png?v=1643152987"><meta property="og:image:secure_url" content="https://cdn.shopify.com/s/files/1/0268/6445/1697/files/portfolio-cover.png?v=1643152987"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Gabriel Garate's Portfolio"><meta name="twitter:description" content="Gabriel Garate's Portfolio. Software Engineer | Web Developer | Shopify Developer"><link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><script async src="https://www.googletagmanager.com/gtag/js?id=G-E0XM32J1VT"></script><script>window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-E0XM32J1VT');</script><style>body, h1,h2,h3,h4,h5,h6 {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .w3-content {
+          padding: 10px;
+        }
+      }
+      .w3-row-padding img {margin-bottom: 12px}
+      @media screen and (min-width: 960px) {
+        .v-main__wrap .container {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 15px;
+        }
+      }
+      .v-main__wrap .container--full-width {
+        max-width: 1280px;
+      }
+
+
+      .tron {
+        background: #05080d;
+        color: #aacfd1;
+      }
+
+      .tron-bg {
+        background: #aacfd1;
+        color: #05080d;
+      }
+
+      .tron .hover-tron:hover{
+        background: #aacfd1 !important;
+        color: #05080d i !important;
+      }
+
+      .border-tron {
+        border: 1px solid #aacfd1 !important;
+      }
+
+      .tron-outline {
+        box-shadow: 0 0 10px #719ECE;
+      }
+
+      .w3-bottombar {
+        border-bottom: 5px solid  #aacfd1 !important;
+      }
+      .w3-input {
+        padding: 8px;
+        display: block;
+        border: none;
+        border-bottom: 1px solid #aacfd1;
+        width: 100%;
+      }
+
+      .w3-input:focus {
+        border:none;
+        border-radius: 5px;
+        outline: none !important;
+        border: 1px solid #aacfd1;
+        box-shadow: 0 0 10px  #aacfd1;
+      }
+      
+      #main {
+        font-weight: 600;
+      }
+      /* Remove margins from "page content" on small screens */
+      @media only screen and (max-width: 600px) {
+        #main {
+          margin-left: 0
+        }
+      }</style><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css"><link href="/css/app.816d19ee.css" rel="preload" as="style"><link href="/css/chunk-vendors.d501df98.css" rel="preload" as="style"><link href="/js/app.4ba230d8.js" rel="preload" as="script"><link href="/js/chunk-vendors.e13f02cf.js" rel="preload" as="script"><link href="/css/chunk-vendors.d501df98.css" rel="stylesheet"><link href="/css/app.816d19ee.css" rel="stylesheet"></head><body class="tron"><noscript><strong>We're sorry but portfolio doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script src="/js/chunk-vendors.e13f02cf.js"></script><script src="/js/app.4ba230d8.js"></script></body></html>
