@@ -9,6 +9,7 @@
         <div class="border-bottom">
             <div class="w-100 pb-2 d-flex justify-content-between mt-3">
                 <h2 class="fw-bold">{{ $job_details->company_name }} - {{ $job_details->job_title }}</h2>
+
                 <button type="button" class="btn bg-blue-custom text-white" data-bs-toggle="modal" data-bs-target="#editJobModal">
                    Edit
                 </button>
@@ -67,7 +68,6 @@
                     <div class="upload-form-wrapper">
                         <x-file-upload :job="$job_details"></x-file-upload>
                     </div>
-
                     <x-files-list :files="$files"></x-files-list>
                 </div>
             </div>

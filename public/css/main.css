@@ -185,3 +185,23 @@ body {
 .job-card:hover {
     background: #f7f7f7;
 }
+
+/* Jobs Overview Grid */
+
+.count-card {
+    border-left: 1px solid #dee2e6;
+    border-right: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.count-sent {
+    border-top: 5px solid gray;
+}
+
+.count-interviews {
+    border-top: 5px solid #7b7bff;
+}
+
+.count-offers {
+    border-top: 5px solid green;
+}

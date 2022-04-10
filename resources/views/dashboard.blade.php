@@ -9,7 +9,7 @@
         <div class="top-grid my-5">
             <div class="row gx-4">
                 <div class="col">
-                    <div class="bg-white border d-flex flex-column px-4 py-3 rounded">
+                    <div class="bg-white d-flex flex-column px-4 py-3 rounded count-card count-sent">
                         <h1 class="fw-bold">
                             {{ $sent_jobs }}
                         </h1>
@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="bg-white border d-flex flex-column px-4 py-3 rounded">
+                    <div class="bg-white d-flex flex-column px-4 py-3 rounded count-card count-interviews">
                         <h1 class="fw-bold">
                             {{ $interviewing_jobs }}
                         </h1>
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="bg-white border d-flex flex-column px-4 py-3 rounded">
+                    <div class="bg-white d-flex flex-column px-4 py-3 rounded count-card count-offers">
                         <h1 class="fw-bold">
                             {{ $offer_jobs }}
                         </h1>
