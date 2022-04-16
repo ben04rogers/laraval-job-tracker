@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CalendarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,4 +49,7 @@ Route::post("/logout", [LogoutController::class, "store"])->name("logout");
 
 Route::get("/register", [RegisterController::class, "index"])->name("register");
 Route::post("/register", [RegisterController::class, "store"]);
+
+Route::get('interviews', [CalendarController::class, 'index'])->name("interviews");
+Route::post('calendar-crud-ajax', [CalendarController::class, 'calendarEvents']);
 

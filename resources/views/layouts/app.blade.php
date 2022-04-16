@@ -42,6 +42,9 @@
                       <a class="nav-link active text-black" href="{{ route("files") }}">Files</a>
                     </li>
                     @endauth
+                    <li class="nav-item active">
+                        <a class="nav-link active text-black" href="{{ route("interviews") }}">Calendar</a>
+                    </li>
                 </div>
               {{-- Only show add button for logged in users --}}
               @auth
