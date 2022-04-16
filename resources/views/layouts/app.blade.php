@@ -49,12 +49,12 @@
                   <li class="nav-item">
                     <div class="dropdown">
                         <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                            Welcome, {{ Auth::user()->name }}
+                            <i class="fas fa-user mx-1"></i> {{ Auth::user()->name }}
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                             <form action="{{ route("logout") }}" method="post">
                                 @csrf
-                                <li><button type="submit" class="dropdown-item" type="button"><i class="fas fa-sign-out-alt text-secondary"></i> Logout</button></li>
+                                <li><button type="submit" class="dropdown-item" type="button"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
                             </form>
                         </ul>
                       </div>
