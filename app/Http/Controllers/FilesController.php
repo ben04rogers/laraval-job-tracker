@@ -22,7 +22,7 @@ class FilesController extends Controller
     }
 
     public function download(Request $request, $file) {
-       return response()->download(public_path('assets/'.$file));
+       return response()->download(public_path('assets/files/'.$file));
     }
 
     public function view($id) {
@@ -50,7 +50,7 @@ class FilesController extends Controller
         $data = new File();
         $file = $request->file;
         $filename = $request->file_name.'.'.$file->getClientOriginalExtension();
-        $request->file->move("assets", $filename);
+        $request->file->move("assets/files", $filename);
         $data->file=$filename;
         $data->user_id=$request->user()->id;
 
@@ -69,8 +69,8 @@ class FilesController extends Controller
         $data = File::find($id);
         DB::table("files")->where("id", $id)->delete();
 
-        // Delete file from /public/assets folder
-        unlink(public_path('/assets/'.$data->file));
+        // Delete file from /public/assets/files folder
+        unlink(public_path('/assets/files/'.$data->file));
         return back();
     }
 }
