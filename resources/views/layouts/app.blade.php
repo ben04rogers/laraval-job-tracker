@@ -46,7 +46,7 @@
                     </li>
                     @endauth
                     <li class="nav-item active">
-                        <a class="nav-link active text-black" href="{{ route("interviews") }}">Calendar</a>
+                        <a class="nav-link active text-black" href="{{ route("calendar") }}">Calendar</a>
                     </li>
                 </div>
               {{-- Only show add button for logged in users --}}

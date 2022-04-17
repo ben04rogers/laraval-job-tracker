@@ -12,12 +12,6 @@ use Symfony\Component\Console\Input\Input;
 
 class DashboardController extends Controller
 {
-    // Only logged in users can see dashboard
-
-    public function __construct()
-    {
-        $this->middleware(['auth']);
-    }
 
     public function index() {
 

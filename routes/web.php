@@ -25,10 +25,10 @@ Route::get('/', function () {
     return view('home');
 })->name("home");
 
-Route::get("/dashboard", [DashboardController::class, "index"])->name("dashboard");
+Route::get("/dashboard", [DashboardController::class, "index"])->name("dashboard")->middleware('auth');
 Route::post("/dashboard", [DashboardController::class, "store"]);
 
-Route::get("/files", [FilesController::class, "index"])->name("files");
+Route::get("/files", [FilesController::class, "index"])->name("files")->middleware('auth');
 Route::post("/files/{id?}", [FilesController::class, "store"])->name("uploadfile");
 Route::delete("/files/delete/{id}", [FilesController::class, "delete"])->name("deletefile");
 
@@ -50,6 +50,6 @@ Route::post("/logout", [LogoutController::class, "store"])->name("logout");
 Route::get("/register", [RegisterController::class, "index"])->name("register");
 Route::post("/register", [RegisterController::class, "store"]);
 
-Route::get('interviews', [CalendarController::class, 'index'])->name("interviews");
+Route::get('calendar', [CalendarController::class, 'index'])->name("calendar")->middleware('auth');
 Route::post('calendar-crud-ajax', [CalendarController::class, 'calendarEvents']);
 
