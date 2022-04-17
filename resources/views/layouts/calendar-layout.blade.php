@@ -44,11 +44,9 @@
                     <li class="nav-item active">
                         <a class="nav-link active text-black" href="{{ route("dashboard") }}">Dashboard</a>
                     </li>
-                    @auth
-                        <li class="nav-item active">
-                            <a class="nav-link active text-black" href="{{ route("files") }}">Files</a>
-                        </li>
-                    @endauth
+                    <li class="nav-item active">
+                        <a class="nav-link active text-black" href="{{ route("files") }}">Files</a>
+                    </li>
                     <li class="nav-item active">
                         <a class="nav-link active text-black" href="{{ route("calendar") }}">Calendar</a>
                     </li>

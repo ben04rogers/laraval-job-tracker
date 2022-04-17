@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Interview;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CalendarController extends Controller
 {
     public function index(Request $request)
     {
-        $data = Interview::all();
+        $data = DB::table("interviews")->get()->where("user_id", Auth::user()->id);
 
         $interview_array = [];
 
@@ -22,8 +24,11 @@ class CalendarController extends Controller
             array_push($interview_array, $data_formatted);
         }
 
+        $user = Auth::user();
+
         return view('calendar', [
-            "interviews_data" => json_encode($interview_array)
+            "interviews_data" => json_encode($interview_array),
+            ""
         ]);
     }
 
@@ -36,6 +41,7 @@ class CalendarController extends Controller
                     'event_name' => $request->event_name,
                     'event_start' => $request->event_start,
                     'event_end' => $request->event_end,
+                    'user_id' => Auth::user()->id
                 ]);
 
                 return response()->json($event);

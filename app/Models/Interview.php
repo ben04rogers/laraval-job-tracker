@@ -12,6 +12,7 @@ class Interview extends Model
     protected $fillable = [
         'event_name',
         'event_start',
-        'event_end'
+        'event_end',
+        'user_id'
     ];
 }
