@@ -49,8 +49,9 @@
                     <form action="{{ route("updatetodo") }}" method="POST" class="d-flex flex-column">
                         @csrf
                         @method('put')
-                            <div>
-                                <input type="checkbox" value="{{$todo->description}}" onchange="this.form.submit()" {{ $todo->completed ? 'checked' : ''}}> {{$todo->description}}
+                            <div class="d-flex">
+                                <input type="checkbox" value="{{$todo->description}}" onchange="this.form.submit()" {{ $todo->completed ? 'checked' : ''}}>
+                                <p class="my-0 mx-2 {{ $todo->completed ? 'text-decoration-line-through' : '' }}">{{$todo->description}}</p>
                                 <input type="hidden" name="todo_id" value="{{$todo->id}}">
                             </div>
                     </form>
@@ -61,7 +62,7 @@
                         <div class="input-group my-3">
                             <input type="text" class="form-control" placeholder="Add a task..." name="todo_description">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary rounded" type="submit">Add</button>
+                                <button class="btn btn-outline-secondary rounded add-task-button" type="submit">Add</button>
                             </div>
                         </div>
                     </form>

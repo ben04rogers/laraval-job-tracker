@@ -205,3 +205,8 @@ body {
 .count-offers {
     border-top: 5px solid green;
 }
+
+.add-task-button {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
