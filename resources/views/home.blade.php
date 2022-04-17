@@ -3,8 +3,13 @@
 @section("content")
     <div class="py-3">
         @if(Session::has('message'))
-        <p class="alert alert-primary mb-2">{{ Session::get('message') }}</p>
+            <script>
+                $(document).ready(function () {
+                    toastr.success(`{!! Session::get('message') !!}`);
+                });
+            </script>
         @endif
+
         <div class="mt-4 bg-white rounded p-5">
             <div class="row align-items-center">
               <div class="col-md-7">

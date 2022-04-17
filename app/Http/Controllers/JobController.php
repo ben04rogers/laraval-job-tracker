@@ -54,6 +54,8 @@ class JobController extends Controller
             'status' => $request->application_status,
         ]);
 
+        Session::flash('message', 'Successfully updated job');
+
         return back();
     }
 

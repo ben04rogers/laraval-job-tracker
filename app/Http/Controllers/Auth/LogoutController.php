@@ -11,7 +11,7 @@ class LogoutController extends Controller
     public function store() {
         auth()->logout();
 
-        Session::flash('message', 'Successfully logged out'); 
+        Session::flash('message', 'Successfully logged out');
 
         return redirect()->route("home");
     }

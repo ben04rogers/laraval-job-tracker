@@ -9,7 +9,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
         $(document).ready(function () {
             var SITEURL = "{{ url('/') }}";
@@ -80,21 +79,21 @@
                     });
                 },
                 eventClick: function (event) {
-                    var eventDelete = confirm("Are you sure?");
-                    if (eventDelete) {
-                        $.ajax({
-                            type: "POST",
-                            url: SITEURL + '/calendar-crud-ajax',
-                            data: {
-                                id: event.id,
-                                type: 'delete'
-                            },
-                            success: function (response) {
-                                calendar.fullCalendar('removeEvents', event.id);
-                                displayMessage("Event removed");
-                            }
-                        });
-                    }
+                    // var eventDelete = confirm("Are you sure?");
+                    // if (eventDelete) {
+                    //     $.ajax({
+                    //         type: "POST",
+                    //         url: SITEURL + '/calendar-crud-ajax',
+                    //         data: {
+                    //             id: event.id,
+                    //             type: 'delete'
+                    //         },
+                    //         success: function (response) {
+                    //             calendar.fullCalendar('removeEvents', event.id);
+                    //             displayMessage("Event removed");
+                    //         }
+                    //     });
+                    // }
                 }
             });
         });

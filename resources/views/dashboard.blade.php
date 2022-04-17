@@ -3,7 +3,11 @@
 @section("content")
     <div class="py-3">
         @if(Session::has('message'))
-        <p class="alert alert-primary mb-2">{{ Session::get('message') }}</p>
+            <script>
+                $(document).ready(function () {
+                    toastr.success(`{!! Session::get('message') !!}`);
+                });
+            </script>
         @endif
 
         <div class="top-grid my-5">
