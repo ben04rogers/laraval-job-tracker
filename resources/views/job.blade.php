@@ -49,7 +49,7 @@
                     <form action="{{ route("updatetodo") }}" method="POST" class="d-flex flex-column">
                         @csrf
                         @method('put')
-                            <div class="d-flex">
+                            <div class="d-flex p-2 bg-white my-1 rounded">
                                 <input type="checkbox" value="{{$todo->description}}" onchange="this.form.submit()" {{ $todo->completed ? 'checked' : ''}}>
                                 <p class="my-0 mx-2 {{ $todo->completed ? 'text-decoration-line-through' : '' }}">{{$todo->description}}</p>
                                 <input type="hidden" name="todo_id" value="{{$todo->id}}">
