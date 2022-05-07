@@ -3,8 +3,8 @@
 @section('content')
     <div>
         <div class="d-flex justify-content-center align-items-center py-5 row auth-container">
-            <div class="col-5">
-                <h2 class="text-center">Register for free</h2>
+            <div class="col-5 border rounded p-4 bg-white">
+                <h2 class="text-center">Register</h2>
 
                 <form action="{{ route("register") }}" method="post">
                     @csrf
