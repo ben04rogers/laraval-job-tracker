@@ -44,6 +44,10 @@
                         <button type="submit" class="btn bg-blue-custom text-white w-100">Login</button>
                     </div>
                 </form>
+                <div class="alert alert-primary mt-3" role="alert">
+                    <p class="m-0">Demo Email: testuser@email.com</p>
+                    <p class="my-2">Demo Password: test123</p>
+                </div>
             </div>
         </div>
     </div>
