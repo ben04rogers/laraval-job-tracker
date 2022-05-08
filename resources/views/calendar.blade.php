@@ -17,9 +17,8 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-{{--            console.log({!! $interviews_data !!});--}}
+
             var calendar = $('#full_calendar_events').fullCalendar({
-                editable: true,
                 editable: true,
                 events: {!! $interviews_data !!},
                 displayEventTime: true,

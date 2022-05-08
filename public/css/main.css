@@ -210,3 +210,21 @@ body {
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
 }
+
+/* Calendar */
+.fc-today-button {
+    background: #434190 !important;
+    color: white !important;
+    font-size: 1rem !important;
+    border-radius: .25rem !important;
+    text-shadow: none !important;
+}
+
+.fc-event {
+    border: 1px solid #434190 !important;
+    background: #434190 !important;
+}
+.fc-content {
+    background: #434190 !important;
+    border: 1px solid #434190 !important;
+}
