@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
@@ -49,6 +50,9 @@ Route::post("/logout", [LogoutController::class, "store"])->name("logout");
 
 Route::get("/register", [RegisterController::class, "index"])->name("register");
 Route::post("/register", [RegisterController::class, "store"]);
+
+Route::get("/account", [AccountController::class, "index"])->name("account");
+
 
 Route::get('calendar', [CalendarController::class, 'index'])->name("calendar")->middleware('auth');
 Route::post('calendar-crud-ajax', [CalendarController::class, 'calendarEvents']);

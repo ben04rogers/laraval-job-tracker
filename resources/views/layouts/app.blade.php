@@ -25,16 +25,13 @@
 
     <nav class="navbar navbar-expand-md navbar-dark border-bottom shadow-sm bg-white">
         <div class="container">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
           <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
           <a class="navbar-brand" href="{{ route("home") }}">
               <img src="{{url('/assets/images/job-track-logo.svg')}}" class="logo">
           </a>
             <ul class="navbar-nav d-flex">
                 <div class="d-flex">
-                    <li class="nav-item active list-unstyled">
+                    <li class="nav-item active mx-3 list-unstyled">
                       <a class="nav-link active text-black" href="{{ route("home") }}"><i class="fas fa-home"></i> Home</a>
                     </li>
                     <li class="nav-item active mx-3 list-unstyled">
@@ -48,26 +45,30 @@
                     </li>
                 </div>
             </ul>
-              <ul class="my-0">
               {{-- Only show add button for logged in users --}}
               @auth
-              <div class="d-flex">
-                  <li class="nav-item list-unstyled">
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-user mx-1"></i> {{ Auth::user()->name }}
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <form action="{{ route("logout") }}" method="post">
-                                @csrf
-                                <li><button type="submit" class="dropdown-item" type="button"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
-                            </form>
-                        </ul>
+                  <ul class="my-0">
+                      <div class="d-flex">
+                          <li class="nav-item list-unstyled">
+                              <div class="dropdown">
+                                  <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                      <i class="fas fa-user mx-1"></i> {{ Auth::user()->name }}
+                                  </button>
+                                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <li>
+                                          <a href="{{ route("account") }}" class="dropdown-item" type="button"><i class="fas fa-address-card"></i>  Account</a>
+                                      </li>
+
+                                      <form action="{{ route("logout") }}" method="post">
+                                          @csrf
+                                          <li><button type="submit" class="dropdown-item" type="button"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
+                                      </form>
+                                  </ul>
+                              </div>
+                          </li>
                       </div>
-                  </li>
-              </div>
+                  </ul>
               @endauth
-              </ul>
 
 
               {{-- Only show links if user is a guest (has not logged in) --}}
