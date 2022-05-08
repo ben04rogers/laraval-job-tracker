@@ -211,6 +211,10 @@ body {
     border-bottom-left-radius: 0 !important;
 }
 
+.job-card-alert {
+    height: fit-content;
+}
+
 /* Calendar */
 .fc-today-button {
     background: #434190 !important;

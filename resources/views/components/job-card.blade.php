@@ -4,7 +4,7 @@
         <div class="p-3">
             <div class="d-flex justify-content-between">
                 <h4 class="text-dark">{{ $job->company_name }}</h4>
-                <p class="alert py-1 px-2 {{ $job->status == "Expired" ? 'alert-danger' : 'alert-success' }}">{{ $job->status }}</p>
+                <p class="job-card-alert alert py-1 px-2 {{ $job->status == "Expired" ? 'alert-danger' : 'alert-success' }}">{{ $job->status }}</p>
             </div>
             <div class="d-flex">
                 <p class="text-muted my-1">Position: </p>
