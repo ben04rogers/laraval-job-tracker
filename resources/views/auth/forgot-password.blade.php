@@ -5,7 +5,7 @@
         <div class="d-flex justify-content-center align-items-center py-5 row auth-container">
             <div class="col-5 border rounded p-4 bg-white">
                 @if (session("status"))
-                    <div class="alert alert-danger">
+                    <div class="alert alert-info">
                         {{ session("status") }}
                     </div>
                 @endif

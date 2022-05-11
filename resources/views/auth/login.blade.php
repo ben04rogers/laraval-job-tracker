@@ -43,6 +43,11 @@
                     <div>
                         <button type="submit" class="btn bg-blue-custom text-white w-100">Login</button>
                     </div>
+
+                    <div class="mt-2">
+                        <a href="{{ route("password.email") }}" class="text-blue-custom text-decoration-none">Forgot Password?</a>
+                    </div>
+
                 </form>
                 <div class="alert alert-primary mt-3" role="alert">
                     <p class="m-0">Demo Email: testuser@email.com</p>
