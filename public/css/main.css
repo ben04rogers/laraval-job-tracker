@@ -232,3 +232,7 @@ body {
     background: #434190 !important;
     border: 1px solid #434190 !important;
 }
+
+nav .active {
+    border-bottom: 3px solid #434190 !important;
+}
