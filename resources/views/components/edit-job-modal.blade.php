@@ -40,10 +40,10 @@
                     <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Status:</label>
                         <select name="application_status" class="form-select">
-                            <option value="Sent" selected>Sent</option>
-                            <option value="Interviewing">Interviewing</option>
-                            <option value="Offer">Offer</option>
-                            <option value="Expired">Expired</option>
+                            <option value="Sent" {{ ($job->status) == 'Sent' ? 'selected' : '' }}>Sent</option>
+                            <option value="Interviewing" {{ ($job->status) == 'Interviewing' ? 'selected' : '' }}>Interviewing</option>
+                            <option value="Offer" {{ ($job->status) == 'Offer' ? 'selected' : '' }}>Offer</option>
+                            <option value="Expired" {{ ($job->status) == 'Expired' ? 'selected' : '' }}>Expired</option>
                         </select>
                     </div>
 
