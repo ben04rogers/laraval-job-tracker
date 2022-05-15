@@ -186,6 +186,18 @@ body {
     background: #f7f7f7;
 }
 
+@media (max-width: 767px) {
+    .job-card {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .job-card {
+        width: calc(50% - 10px);
+    }
+}
+
 /* Jobs Overview Grid */
 
 .count-card {
