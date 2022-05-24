@@ -275,6 +275,10 @@ nav .active {
     display: none !important;
 }
 
+.edit-button {
+    height: fit-content;
+}
+
 @media (max-width: 991px) {
     .desktop-nav {
         display: none;
@@ -299,5 +303,15 @@ nav .active {
     }
     .top-grid .row > .col:nth-child(2) {
         margin: 1rem 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .job-detail-icons {
+        flex-direction: column;
+    }
+
+    .job-detail-icons > * {
+        margin-left: 0 !important;
     }
 }

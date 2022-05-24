@@ -14,12 +14,12 @@
             <div class="w-100 pb-2 d-flex justify-content-between mt-3">
                 <h2 class="fw-bold">{{ $job_details->company_name }} - {{ $job_details->job_title }}</h2>
 
-                <button type="button" class="btn bg-blue-custom text-white" data-bs-toggle="modal" data-bs-target="#editJobModal">
+                <button type="button" class="btn bg-blue-custom text-white edit-button" data-bs-toggle="modal" data-bs-target="#editJobModal">
                    Edit
                 </button>
             </div>
 
-            <div class="d-flex">
+            <div class="d-flex job-detail-icons">
                 <p><i class="fas fa-money-bill-alt"></i><span class="text-muted mx-1"> ${{  number_format($job_details->salary, 0 , '.' , ',') }}</span></p>
                 <p class="mx-4"><i class="fas fa-calendar-day"></i><span class="text-muted mx-1"> {{ \Carbon\Carbon::createFromTimestamp(strtotime($job_details->date_applied))->diffForHumans() }}</span></p>
                 <p><i class="fas fa-info-circle"></i> <span class="text-muted mx-1">{{ $job_details->status }}</span></p>
@@ -32,7 +32,7 @@
 
         <div class="my-4">
             <div class="row">
-                <div class="col-6">
+                <div class="col-12 col-lg-6">
                     <h3>Job Description</h3>
                     <div class="p-4 bg-white rounded description-output">
                         @if(empty($job_details->description))
@@ -59,7 +59,7 @@
 
                     <form action="{{ route("addtodo", $job_id) }}" method="POST">
                         @csrf
-                        <div class="input-group my-3">
+                        <div class="input-group mt-3 mb-5">
                             <input type="text" class="form-control" placeholder="Add a task..." name="todo_description">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-secondary rounded add-task-button" type="submit">Add</button>
@@ -68,7 +68,7 @@
                     </form>
 
                 </div>
-                <div class="col-6">
+                <div class="col-12 col-lg-6">
                     <h2>File</h2>
                     <div class="upload-form-wrapper">
                         <x-file-upload :job="$job_details"></x-file-upload>
