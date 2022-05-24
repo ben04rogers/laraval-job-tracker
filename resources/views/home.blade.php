@@ -10,7 +10,7 @@
             </script>
         @endif
 
-        <div class="mt-4 bg-white rounded p-5">
+        <div class="mt-4 bg-white rounded p-4 p-lg-5">
             <div class="row align-items-center">
               <div class="col-md-7">
                 <h1>Manage Your Job Applications</h1>
