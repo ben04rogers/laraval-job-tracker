@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Job;
+use App\Models\Todo;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -22,5 +23,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
         ]);
         Job::factory(10)->create();
+
+        Todo::factory(30)->create();
     }
 }

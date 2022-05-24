@@ -53,6 +53,11 @@
                         <button type="submit" class="btn bg-blue-custom text-white w-100">Register</button>
                     </div>
                 </form>
+                <div class="alert alert-primary mt-3 text-center" role="alert">
+                    <a href="{{ route("login") }}" class="text-decoration-none">
+                            Login with demo account here
+                    </a>
+                </div>
             </div>
         </div>
     </div>
