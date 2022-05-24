@@ -29,9 +29,9 @@
                 </ul>
             </div>
 
-            <div class="desktop-nav">
             {{-- Only show add button for logged in users --}}
             @auth
+            <div class="desktop-nav">
                 <ul class="my-0">
                     <div class="d-flex">
                         <li class="nav-item list-unstyled">
@@ -53,8 +53,8 @@
                         </li>
                     </div>
                 </ul>
-            @endauth
             </div>
+            @endauth
 
 
             {{-- Only show links if user is a guest (has not logged in) --}}
