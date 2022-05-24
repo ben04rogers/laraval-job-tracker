@@ -95,6 +95,18 @@
                             <a class="nav-link text-black py-3 text-white" href="{{ route("register") }}">Register</a>
                         </li>
                     @endguest
+
+                    {{-- Only show add button for logged in users --}}
+                    @auth
+                        <li class="nav-item list-unstyled">
+                            <a class="nav-link text-black py-3 text-white" href="{{ route("account") }}" type="button">Account</a>
+                        </li>
+
+                        <form action="{{ route("logout") }}" method="post">
+                            @csrf
+                            <li class="nav-item list-unstyled"><button type="submit" type="button" class="bg-transparent border-0 nav-link text-black py-3 text-white">Logout</button></li>
+                        </form>
+                    @endauth
             </ul>
         </div>
     </div>
