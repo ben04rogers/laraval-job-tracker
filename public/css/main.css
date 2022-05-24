@@ -287,3 +287,14 @@ nav .active {
         display: none;
     }
 }
+
+@media (max-width: 422px) {
+    .top-grid .row {
+        display: flex;
+        flex-direction: column;
+    }
+    .top-grid .row > .col:nth-child(2) {
+        margin: 1rem 0;
+    }
+
+}

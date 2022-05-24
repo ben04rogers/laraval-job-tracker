@@ -17,7 +17,7 @@
                         <h1 class="fw-bold">
                             {{ $sent_jobs }}
                         </h1>
-                        <h5 class="text-muted">Sent Applications</h5>
+                        <h5 class="text-muted">Sent</h5>
                     </div>
                 </div>
                 <div class="col">
