@@ -86,6 +86,15 @@
                     <li class="nav-item list-unstyled">
                         <a class="nav-link text-black py-3 text-white" href="{{ route("calendar") }}">Calendar</a>
                     </li>
+                    {{-- Only show links if user is a guest (has not logged in) --}}
+                    @guest
+                        <li class="nav-item list-unstyled">
+                            <a class="nav-link text-black py-3 text-white" href="{{ route("login") }}">Login</a>
+                        </li>
+                        <li class="nav-item list-unstyled">
+                            <a class="nav-link text-black py-3 text-white" href="{{ route("register") }}">Register</a>
+                        </li>
+                    @endguest
             </ul>
         </div>
     </div>

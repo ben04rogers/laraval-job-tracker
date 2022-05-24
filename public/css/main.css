@@ -249,6 +249,10 @@ nav .active {
     border-bottom: 3px solid #434190 !important;
 }
 
+.auth-form-container {
+    max-width: 500px;
+}
+
 .navbar {
     padding: 0;
 }
@@ -296,5 +300,4 @@ nav .active {
     .top-grid .row > .col:nth-child(2) {
         margin: 1rem 0;
     }
-
 }
