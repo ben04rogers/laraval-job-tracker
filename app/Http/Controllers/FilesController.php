@@ -62,10 +62,12 @@ class FilesController extends Controller
 
     public function delete($id) {
         $data = File::find($id);
+
         DB::table("files")->where("id", $id)->delete();
 
         // Delete file from /public/assets/files folder
         unlink(public_path('/assets/files/'.$data->file));
+
         return back();
     }
 }

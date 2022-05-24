@@ -59,9 +59,6 @@ class DashboardController extends Controller
             'date_applied' => date('Y-m-d H:i')
         ]);
 
-        // Send email
-//        Mail::to('benrogers1299@outlook.com')->send(new NewJob());
-
         return back();
     }
 }

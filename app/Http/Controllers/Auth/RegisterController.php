@@ -13,13 +13,12 @@ class RegisterController extends Controller
     public function __construct() {
         $this->middleware(["guest"]);
     }
-    
+
     public function index() {
         return view("auth.register");
     }
-    
+
     public function store(Request $request) {
-        // validate
         $this->validate($request, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255',

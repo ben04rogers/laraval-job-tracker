@@ -34,7 +34,6 @@ class JobController extends Controller
     }
 
     public function update($id, Request $request) {
-        // Validate request
 
         $this->validate($request, [
             'company_name' => 'required|max:255',
