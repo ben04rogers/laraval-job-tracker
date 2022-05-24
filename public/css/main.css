@@ -248,3 +248,42 @@ body {
 nav .active {
     border-bottom: 3px solid #434190 !important;
 }
+
+.navbar {
+    padding: 0;
+}
+
+.mobile-nav {
+    background: #434190;
+    position: absolute;
+    top: 75px;
+    right: .75rem;
+    left: .75rem;
+    z-index: 100;
+}
+
+.hamburger-button {
+    background: white;
+    border: none;
+}
+
+.hide-element {
+    display: none !important;
+}
+
+@media (max-width: 991px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .navbar {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .hamburger-button {
+        display: none;
+    }
+}
