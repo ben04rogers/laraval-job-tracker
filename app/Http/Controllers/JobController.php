@@ -19,6 +19,10 @@ class JobController extends Controller
         // Get all jobs for the currently signed in user
         $job_details = DB::table("jobs")->where("id", $job_id)->first();
 
+        // Format contract_type data from 'full-time' to 'Full Time'
+        $job_details->contract_type = str_replace('-', ' ', $job_details->contract_type);
+        $job_details->contract_type = ucwords($job_details->contract_type);
+
         // Get files for this specific job
         $files = DB::table("files")->get()->where("user_id", Auth::user()->id)->where("job_id", $job_id);
 
@@ -41,6 +45,7 @@ class JobController extends Controller
             'salary' => 'required|',
             'description' => 'required',
             'post_url' => 'required',
+            'contract_type' => 'required',
             'application_status' => 'required'
         ]);
 
@@ -50,7 +55,8 @@ class JobController extends Controller
             'salary' => $request->salary,
             'description' => $request->description,
             'post_url' => $request->post_url,
-            'status' => $request->application_status,
+            'contract_type' => $request->contract_type,
+            'status' => $request->application_status
         ]);
 
         Session::flash('message', 'Successfully updated job');

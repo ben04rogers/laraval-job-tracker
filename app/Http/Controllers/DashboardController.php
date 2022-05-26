@@ -12,7 +12,6 @@ use Symfony\Component\Console\Input\Input;
 
 class DashboardController extends Controller
 {
-
     public function index() {
 
         // Get all jobs for the currently signed in user
@@ -37,8 +36,6 @@ class DashboardController extends Controller
     }
 
     public function store(Request $request) {
-        // Validate request
-
         $this->validate($request, [
             'company_name' => 'required|max:255',
             'position_title' => 'required|max:255',

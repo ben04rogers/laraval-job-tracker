@@ -38,6 +38,16 @@
                     </div>
 
                     <div class="d-flex flex-column mb-2">
+                        <label class="mb-1">Employment Type:</label>
+                        <select name="contract_type" class="form-select">
+                            <option value="full-time" {{ ($job->contract_type) == 'full-time' ? 'selected' : '' }}>Full Time</option>
+                            <option value="part-time" {{ ($job->contract_type) == 'part-time' ? 'selected' : '' }}>Part Time</option>
+                            <option value="contract" {{ ($job->contract_type) == 'contract' ? 'selected' : '' }}>Contract</option>
+                            <option value="temporary" {{ ($job->contract_type) == 'temporary' ? 'selected' : '' }}>Temporary</option>
+                        </select>
+                    </div>
+
+                    <div class="d-flex flex-column mb-2">
                         <label class="mb-1">Status:</label>
                         <select name="application_status" class="form-select">
                             <option value="Sent" {{ ($job->status) == 'Sent' ? 'selected' : '' }}>Sent</option>
