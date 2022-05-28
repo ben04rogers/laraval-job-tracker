@@ -77,7 +77,7 @@
 
                 </div>
                 <div class="col-12 col-lg-6">
-                    <h2>File</h2>
+                    <h2>Files</h2>
                     <div class="upload-form-wrapper">
                         <x-file-upload :job="$job_details"></x-file-upload>
                     </div>

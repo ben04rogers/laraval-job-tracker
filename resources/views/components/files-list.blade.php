@@ -4,7 +4,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th scope="col">File</th>
+                <th scope="col">Files</th>
                 <th scope="col"></th>
             </tr>
             </thead>
