@@ -57,7 +57,7 @@
                         </select>
                     </div>
 
-                    <div class="modal-footer">
+                    <div class="modal-footer px-0">
                         <button type="submit" name="submit" class="btn bg-blue-custom text-white">Update</button>
                     </div>
                 </form>
