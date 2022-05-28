@@ -35,7 +35,8 @@
                                 {{ $message }}
                             </div>
                         @enderror
-                        <input type="submit" value="Upload" class="btn btn-primary mt-4">
+                        <input type="submit" value="Upload" class="btn bg-blue-custom mt-4 text-white">
+
                     </div>
                 </form>
             </div>

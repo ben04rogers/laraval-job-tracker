@@ -59,7 +59,6 @@ Route::post("/register", [RegisterController::class, "store"]);
 
 Route::get("/account", [AccountController::class, "index"])->name("account");
 
-
 Route::get('calendar', [CalendarController::class, 'index'])->name("calendar")->middleware('auth');
 Route::post('calendar-crud-ajax', [CalendarController::class, 'calendarEvents']);
 
