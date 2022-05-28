@@ -46,15 +46,23 @@
 
                     <h3 class="mt-5">Check List</h3>
                     @foreach ($todos as $todo)
-                    <form action="{{ route("updatetodo") }}" method="POST" class="d-flex flex-column">
-                        @csrf
-                        @method('put')
-                            <div class="d-flex p-2 bg-white my-1 rounded">
-                                <input type="checkbox" value="{{$todo->description}}" onchange="this.form.submit()" {{ $todo->completed ? 'checked' : ''}}>
-                                <p class="my-0 mx-2 {{ $todo->completed ? 'text-decoration-line-through' : '' }}">{{$todo->description}}</p>
-                                <input type="hidden" name="todo_id" value="{{$todo->id}}">
-                            </div>
-                    </form>
+                    <div class="d-flex bg-white rounded p-3 py-2">
+                        <form action="{{ route("updatetodo") }}" method="POST" class="d-flex flex-column w-100">
+                            @csrf
+                            @method('put')
+                                <div class="d-flex">
+                                    <input type="checkbox" value="{{$todo->description}}" onchange="this.form.submit()" {{ $todo->completed ? 'checked' : ''}}>
+                                    <p class="my-0 mx-2 {{ $todo->completed ? 'text-decoration-line-through' : '' }}">{{$todo->description}}</p>
+                                    <input type="hidden" name="todo_id" value="{{$todo->id}}">
+
+                                </div>
+                        </form>
+                        <form action="{{ route("deletetodo") }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="todo_id" value="{{$todo->id}}">
+                            <button class="bg-transparent border-0 text-danger" type="submit"><i class="fas fa-trash-alt"></i></button>
+                        </form>
+                    </div>
                     @endforeach
 
                     <form action="{{ route("addtodo", $job_id) }}" method="POST">

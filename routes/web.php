@@ -47,6 +47,7 @@ Route::put("/jobs/{id}/update", [JobController::class, "update"])->name("updatej
 
 Route::put("todo/update", [TodoController::class, "updateTodo"])->name("updatetodo");
 Route::post("todo/{id}/add", [TodoController::class, "addtodo"])->name("addtodo");
+Route::post("todo/delete", [TodoController::class, "deleteTodo"])->name("deletetodo");
 
 Route::get("/login", [LoginController::class, "index"])->name("login");
 Route::post("/login", [LoginController::class, "store"]);
