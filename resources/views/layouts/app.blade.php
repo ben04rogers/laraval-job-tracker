@@ -19,6 +19,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <script src="https://unpkg.com/turbolinks"></script>
+
     <title>Job Application Tracker</title>
 </head>
 <body class="bg-light">
