@@ -1,14 +1,19 @@
 /* Colours */
+
+:root {
+    --primary-blue-color: #4075FE;
+}
+
 .bg-blue-custom {
-    background: #434190;
+    background: var(--primary-blue-color);
 }
 
 .border-blue-custom {
-    border: 1px solid #434190;
+    border: 1px solid var(--primary-blue-color);
 }
 
-.bg-orange-custom {
-    background: #dd6b20;
+.text-blue-custom {
+    color: var(--primary-blue-color);
 }
 
 .job-delete-btn {
@@ -229,7 +234,7 @@ body {
 
 /* Calendar */
 .fc-today-button {
-    background: #434190 !important;
+    background: var(--primary-blue-color) !important;
     color: white !important;
     font-size: 1rem !important;
     border-radius: .25rem !important;
@@ -237,16 +242,20 @@ body {
 }
 
 .fc-event {
-    border: 1px solid #434190 !important;
-    background: #434190 !important;
+    border: 1px solid var(--primary-blue-color) !important;
+    background: var(--primary-blue-color) !important;
 }
 .fc-content {
-    background: #434190 !important;
-    border: 1px solid #434190 !important;
+    background: var(--primary-blue-color) !important;
+    border: 1px solid var(--primary-blue-color) !important;
 }
 
 nav .active {
-    border-bottom: 3px solid #434190 !important;
+    border-bottom: 3px solid var(--primary-blue-color) !important;
+}
+
+.login-nav-btn:hover {
+    color: var(--primary-blue-color);
 }
 
 .auth-form-container {
@@ -258,7 +267,7 @@ nav .active {
 }
 
 .mobile-nav {
-    background: #434190;
+    background: #4075FE;
     position: absolute;
     top: 75px;
     right: .75rem;

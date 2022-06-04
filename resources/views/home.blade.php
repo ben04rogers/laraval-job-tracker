@@ -25,7 +25,7 @@
             </div>
 
               <div class="col-md-5">
-                <img class="img-fluid" src="/img/home.svg">
+                <img class="img-fluid py-4" src="/img/home.svg">
               </div>
             </div>
         </div>

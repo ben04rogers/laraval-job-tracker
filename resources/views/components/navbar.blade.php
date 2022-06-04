@@ -62,10 +62,10 @@
                 <div class="desktop-nav">
                     <div class="d-flex">
                         <li class="nav-item list-unstyled">
-                            <a class="btn border-blue-custom mx-2" href="{{ route("login") }}"><i class="fas fa-sign-in-alt"></i> Login</a>
+                            <a class="btn border-blue-custom mx-2 text-blue-custom login-nav-btn" href="{{ route("login") }}"><i class="fas fa-sign-in-alt"></i> Login</a>
                         </li>
                         <li class="nav-item list-unstyled">
-                            <a class="btn bg-blue-custom text-white" href="{{ route("register") }}"><i class="fas fa-user-plus"></i> Register</a>
+                            <a class="btn bg-blue-custom text-white register-nav-btn" href="{{ route("register") }}"><i class="fas fa-user-plus"></i> Register</a>
                         </li>
                     </div>
                 </div>
