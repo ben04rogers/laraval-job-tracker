@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Job extends Model
 {
@@ -19,7 +20,6 @@ class Job extends Model
         'description'
     ];
 
-    // A job application belongs to a user
     public function user() {
         return $this->belongsTo(User::class);
     }

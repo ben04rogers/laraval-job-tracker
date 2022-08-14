@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use App\Repos\FileRepository;
+use App\Repos\JobRepository;
+use App\Repos\TodoRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -11,23 +14,18 @@ use Illuminate\Support\Facades\Storage;
 
 class JobController extends Controller
 {
-    public function index(Request $request) {
+    public function index(Request $request, JobRepository $job_repo, FileRepository $file_repo, TodoRepository $todo_repo) {
 
         // Get the id passed in url 'jobs/{id}/details'
         $job_id = $request->route('id');
 
-        // Get all jobs for the currently signed in user
-        $job_details = DB::table("jobs")->where("id", $job_id)->first();
+        $job_details = $job_repo->getJobDetails($job_id);
+        $files = $file_repo->getJobFiles($job_id);
+        $todos = $todo_repo->getJobTodos($job_id);
 
         // Format contract_type data from 'full-time' to 'Full Time'
         $job_details->contract_type = str_replace('-', ' ', $job_details->contract_type);
         $job_details->contract_type = ucwords($job_details->contract_type);
-
-        // Get files for this specific job
-        $files = DB::table("files")->get()->where("user_id", Auth::user()->id)->where("job_id", $job_id);
-
-        // Get all todos for this specific job and user
-        $todos = DB::table("todos")->get()->where("user_id", Auth::user()->id)->where("job_id", $job_id);
 
         return view("job", [
             'job_details' => $job_details,
